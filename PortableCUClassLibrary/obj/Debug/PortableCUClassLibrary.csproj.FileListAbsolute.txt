@@ -1,0 +1,5 @@
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\PortableCUClassLibrary\bin\Debug\PortableCUClassLibrary.dll
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\PortableCUClassLibrary\bin\Debug\PortableCUClassLibrary.pdb
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\PortableCUClassLibrary\obj\Debug\PortableCUClassLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\PortableCUClassLibrary\obj\Debug\PortableCUClassLibrary.dll
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\PortableCUClassLibrary\obj\Debug\PortableCUClassLibrary.pdb

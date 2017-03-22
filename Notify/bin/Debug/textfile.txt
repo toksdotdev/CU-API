@@ -1,0 +1,526 @@
+<!DOCTYPE HTML>
+<!DOCTYPE html PUBLIC "" ""><HTML class="yui3-js-enabled" lang="en" lang="en" 
+dir="ltr" xml:lang="en"><HEAD><META content="IE=11.0000" 
+http-equiv="X-UA-Compatible">
+     <TITLE>Tochukwu Nkemdilim: Public profile</TITLE>     <LINK href="http://10.0.3.32/theme/image.php/campus/theme/1478706134/favicon" 
+rel="shortcut icon">     
+<META http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<META name="keywords" content="moodle, Tochukwu Nkemdilim: Public profile"> 
+<LINK href="http://10.0.3.32/theme/yui_combo.php?rollup/3.17.2/yui-moodlesimple-min.css" 
+rel="stylesheet" type="text/css">
+<SCRIPT src="//www.google-analytics.com/analytics.js" async=""></SCRIPT>
+
+<SCRIPT id="yui_3_17_2_1_1490203062452_9" src="http://10.0.3.32/theme/yui_combo.php?m/1474366921/core/event/event-min.js&amp;m/1474366921/filter_mathjaxloader/loader/loader-min.js" charset="utf-8" async=""></SCRIPT>
+
+<SCRIPT id="firstthemesheet" type="text/css">/** Required in order to fix style inclusion problems in IE with YUI **/</SCRIPT>
+<LINK href="http://10.0.3.32/theme/styles.php/campus/1478706134/all" rel="stylesheet" 
+type="text/css"> 
+<SCRIPT type="text/javascript">
+//<![CDATA[
+var M = {}; M.yui = {};
+M.pageloadstarttime = new Date();
+M.cfg = {"wwwroot":"http:\/\/10.0.3.32","sesskey":"3pVzPPs47c","loadingicon":"http:\/\/10.0.3.32\/theme\/image.php\/campus\/core\/1478706134\/i\/loading_small","themerev":"1478706134","slasharguments":1,"theme":"campus","jsrev":"1474366921","admin":"admin","svgicons":true};var yui1ConfigFn = function(me) {if(/-skin|reset|fonts|grids|base/.test(me.name)){me.type='css';me.path=me.path.replace(/\.js/,'.css');me.path=me.path.replace(/\/yui2-skin/,'/assets/skins/sam/yui2-skin')}};
+var yui2ConfigFn = function(me) {var parts=me.name.replace(/^moodle-/,'').split('-'),component=parts.shift(),module=parts[0],min='-min';if(/-(skin|core)$/.test(me.name)){parts.pop();me.type='css';min=''};if(module){var filename=parts.join('-');me.path=component+'/'+module+'/'+filename+min+'.'+me.type}else me.path=component+'/'+component+'.'+me.type};
+YUI_config = {"debug":false,"base":"http:\/\/10.0.3.32\/lib\/yuilib\/3.17.2\/","comboBase":"http:\/\/10.0.3.32\/theme\/yui_combo.php?","combine":true,"filter":null,"insertBefore":"firstthemesheet","groups":{"yui2":{"base":"http:\/\/10.0.3.32\/lib\/yuilib\/2in3\/2.9.0\/build\/","comboBase":"http:\/\/10.0.3.32\/theme\/yui_combo.php?","combine":true,"ext":false,"root":"2in3\/2.9.0\/build\/","patterns":{"yui2-":{"group":"yui2","configFn":yui1ConfigFn}}},"moodle":{"name":"moodle","base":"http:\/\/10.0.3.32\/theme\/yui_combo.php?m\/1474366921\/","combine":true,"comboBase":"http:\/\/10.0.3.32\/theme\/yui_combo.php?","ext":false,"root":"m\/1474366921\/","patterns":{"moodle-":{"group":"moodle","configFn":yui2ConfigFn}},"filter":null,"modules":{"moodle-core-formautosubmit":{"requires":["base","event-key"]},"moodle-core-tooltip":{"requires":["base","node","io-base","moodle-core-notification-dialogue","json-parse","widget-position","widget-position-align","event-outside","cache-base"]},"moodle-core-notification":{"requires":["moodle-core-notification-dialogue","moodle-core-notification-alert","moodle-core-notification-confirm","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-core-notification-dialogue":{"requires":["base","node","panel","escape","event-key","dd-plugin","moodle-core-widget-focusafterclose","moodle-core-lockscroll"]},"moodle-core-notification-alert":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-confirm":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-exception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-notification-ajaxexception":{"requires":["moodle-core-notification-dialogue"]},"moodle-core-dragdrop":{"requires":["base","node","io","dom","dd","event-key","event-focus","moodle-core-notification"]},"moodle-core-chooserdialogue":{"requires":["base","panel","moodle-core-notification"]},"moodle-core-popuphelp":{"requires":["moodle-core-tooltip"]},"moodle-core-handlebars":{"condition":{"trigger":"handlebars","when":"after"}},"moodle-core-maintenancemodetimer":{"requires":["base","node"]},"moodle-core-actionmenu":{"requires":["base","event","node-event-simulate"]},"moodle-core-lockscroll":{"requires":["plugin","base-build"]},"moodle-core-checknet":{"requires":["base-base","moodle-core-notification-alert","io-base"]},"moodle-core-formchangechecker":{"requires":["base","event-focus","moodle-core-event"]},"moodle-core-blocks":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification"]},"moodle-core-dock":{"requires":["base","node","event-custom","event-mouseenter","event-resize","escape","moodle-core-dock-loader","moodle-core-event"]},"moodle-core-dock-loader":{"requires":["escape"]},"moodle-core-languninstallconfirm":{"requires":["base","node","moodle-core-notification-confirm","moodle-core-notification-alert"]},"moodle-core-event":{"requires":["event-custom"]},"moodle-core_availability-form":{"requires":["base","node","event","panel","moodle-core-notification-dialogue","json"]},"moodle-backup-confirmcancel":{"requires":["node","node-event-simulate","moodle-core-notification-confirm"]},"moodle-backup-backupselectall":{"requires":["node","event","node-event-simulate","anim"]},"moodle-calendar-info":{"requires":["base","node","event-mouseenter","event-key","overlay","moodle-calendar-info-skin"]},"moodle-course-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-course-coursebase","moodle-course-util"]},"moodle-course-formatchooser":{"requires":["base","node","node-event-simulate"]},"moodle-course-management":{"requires":["base","node","io-base","moodle-core-notification-exception","json-parse","dd-constrain","dd-proxy","dd-drop","dd-delegate","node-event-delegate"]},"moodle-course-modchooser":{"requires":["moodle-core-chooserdialogue","moodle-course-coursebase"]},"moodle-course-util":{"requires":["node"],"use":["moodle-course-util-base"],"submodules":{"moodle-course-util-base":{},"moodle-course-util-section":{"requires":["node","moodle-course-util-base"]},"moodle-course-util-cm":{"requires":["node","moodle-course-util-base"]}}},"moodle-course-toolboxes":{"requires":["node","base","event-key","node","io","moodle-course-coursebase","moodle-course-util"]},"moodle-course-categoryexpander":{"requires":["node","event-key"]},"moodle-form-dateselector":{"requires":["base","node","overlay","calendar"]},"moodle-form-showadvanced":{"requires":["node","base","selector-css3"]},"moodle-form-passwordunmask":{"requires":["node","base"]},"moodle-form-shortforms":{"requires":["node","base","selector-css3","moodle-core-event"]},"moodle-core_message-messenger":{"requires":["escape","handlebars","io-base","moodle-core-notification-ajaxexception","moodle-core-notification-alert","moodle-core-notification-dialogue","moodle-core-notification-exception"]},"moodle-core_message-deletemessage":{"requires":["node","event"]},"moodle-question-preview":{"requires":["base","dom","event-delegate","event-key","core_question_engine"]},"moodle-question-chooser":{"requires":["moodle-core-chooserdialogue"]},"moodle-question-searchform":{"requires":["base","node"]},"moodle-question-qbankmanager":{"requires":["node","selector-css3"]},"moodle-availability_completion-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_date-form":{"requires":["base","node","event","io","moodle-core_availability-form"]},"moodle-availability_grade-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_group-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_grouping-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-availability_profile-form":{"requires":["base","node","event","moodle-core_availability-form"]},"moodle-qtype_ddimageortext-dd":{"requires":["node","dd","dd-drop","dd-constrain"]},"moodle-qtype_ddimageortext-form":{"requires":["moodle-qtype_ddimageortext-dd","form_filepicker"]},"moodle-qtype_ddmarker-dd":{"requires":["node","event-resize","dd","dd-drop","dd-constrain","graphics"]},"moodle-qtype_ddmarker-form":{"requires":["moodle-qtype_ddmarker-dd","form_filepicker","graphics","escape"]},"moodle-qtype_ddwtos-dd":{"requires":["node","dd","dd-drop","dd-constrain"]},"moodle-mod_assign-history":{"requires":["node","transition"]},"moodle-mod_forum-subscriptiontoggle":{"requires":["base-base","io-base"]},"moodle-mod_quiz-dragdrop":{"requires":["base","node","io","dom","dd","dd-scroll","moodle-core-dragdrop","moodle-core-notification","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-base","moodle-mod_quiz-util-page","moodle-mod_quiz-util-slot","moodle-course-util"]},"moodle-mod_quiz-autosave":{"requires":["base","node","event","event-valuechange","node-event-delegate","io-form"]},"moodle-mod_quiz-quizquestionbank":{"requires":["base","event","node","io","io-form","yui-later","moodle-question-qbankmanager","moodle-core-notification-dialogue"]},"moodle-mod_quiz-questionchooser":{"requires":["moodle-core-chooserdialogue","moodle-mod_quiz-util","querystring-parse"]},"moodle-mod_quiz-quizbase":{"requires":["base","node"]},"moodle-mod_quiz-util":{"requires":["node"],"use":["moodle-mod_quiz-util-base"],"submodules":{"moodle-mod_quiz-util-base":{},"moodle-mod_quiz-util-slot":{"requires":["node","moodle-mod_quiz-util-base"]},"moodle-mod_quiz-util-page":{"requires":["node","moodle-mod_quiz-util-base"]}}},"moodle-mod_quiz-repaginate":{"requires":["base","event","node","io","moodle-core-notification-dialogue"]},"moodle-mod_quiz-modform":{"requires":["base","node","event"]},"moodle-mod_quiz-toolboxes":{"requires":["base","node","event","event-key","io","moodle-mod_quiz-quizbase","moodle-mod_quiz-util-slot","moodle-core-notification-ajaxexception"]},"moodle-mod_quiz-randomquestion":{"requires":["base","event","node","io","moodle-core-notification-dialogue"]},"moodle-message_airnotifier-toolboxes":{"requires":["base","node","io"]},"moodle-filter_glossary-autolinker":{"requires":["base","node","io-base","json-parse","event-delegate","overlay","moodle-core-event","moodle-core-notification-alert","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-filter_mathjaxloader-loader":{"requires":["moodle-core-event"]},"moodle-editor_atto-rangy":{"requires":[]},"moodle-editor_atto-editor":{"requires":["node","transition","io","overlay","escape","event","event-simulate","event-custom","node-event-html5","node-event-simulate","yui-throttle","moodle-core-notification-dialogue","moodle-core-notification-confirm","moodle-editor_atto-rangy","handlebars","timers","querystring-stringify"]},"moodle-editor_atto-plugin":{"requires":["node","base","escape","event","event-outside","handlebars","event-custom","timers","moodle-editor_atto-menu"]},"moodle-editor_atto-menu":{"requires":["moodle-core-notification-dialogue","node","event","event-custom"]},"moodle-report_eventlist-eventfilter":{"requires":["base","event","node","node-event-delegate","datatable","autocomplete","autocomplete-filters"]},"moodle-report_loglive-fetchlogs":{"requires":["base","event","node","io","node-event-delegate"]},"moodle-gradereport_grader-gradereporttable":{"requires":["base","node","event","handlebars","overlay","event-hover"]},"moodle-gradereport_history-userselector":{"requires":["escape","event-delegate","event-key","handlebars","io-base","json-parse","moodle-core-notification-dialogue"]},"moodle-tool_capability-search":{"requires":["base","node"]},"moodle-tool_lp-dragdrop-reorder":{"requires":["moodle-core-dragdrop"]},"moodle-tool_monitor-dropdown":{"requires":["base","event","node"]},"moodle-assignfeedback_editpdf-editor":{"requires":["base","event","node","io","graphics","json","event-move","event-resize","transition","querystring-stringify-simple","moodle-core-notification-dialog","moodle-core-notification-exception","moodle-core-notification-ajaxexception"]},"moodle-atto_accessibilitychecker-button":{"requires":["color-base","moodle-editor_atto-plugin"]},"moodle-atto_accessibilityhelper-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_align-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_bold-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_charmap-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_clear-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_collapse-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_emoticon-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_equation-button":{"requires":["moodle-editor_atto-plugin","moodle-core-event","io","event-valuechange","tabview","array-extras"]},"moodle-atto_html-button":{"requires":["moodle-editor_atto-plugin","event-valuechange"]},"moodle-atto_image-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_indent-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_italic-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_link-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_managefiles-usedfiles":{"requires":["node","escape"]},"moodle-atto_managefiles-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_media-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_noautolink-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_orderedlist-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_rtl-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_strike-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_subscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_superscript-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_table-button":{"requires":["moodle-editor_atto-plugin","moodle-editor_atto-menu","event","event-valuechange"]},"moodle-atto_title-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_underline-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_undo-button":{"requires":["moodle-editor_atto-plugin"]},"moodle-atto_unorderedlist-button":{"requires":["moodle-editor_atto-plugin"]}}},"gallery":{"name":"gallery","base":"http:\/\/10.0.3.32\/lib\/yuilib\/gallery\/","combine":true,"comboBase":"http:\/\/10.0.3.32\/theme\/yui_combo.php?","ext":false,"root":"gallery\/1474366921\/","patterns":{"gallery-":{"group":"gallery"}}}},"modules":{"core_filepicker":{"name":"core_filepicker","fullpath":"http:\/\/10.0.3.32\/lib\/javascript.php\/1474366921\/repository\/filepicker.js","requires":["base","node","node-event-simulate","json","async-queue","io-base","io-upload-iframe","io-form","yui2-treeview","panel","cookie","datatable","datatable-sort","resize-plugin","dd-plugin","escape","moodle-core_filepicker"]},"core_comment":{"name":"core_comment","fullpath":"http:\/\/10.0.3.32\/lib\/javascript.php\/1474366921\/comment\/comment.js","requires":["base","io-base","node","json","yui2-animation","overlay"]},"mathjax":{"name":"mathjax","fullpath":"http:\/\/cdn.mathjax.org\/mathjax\/2.6-latest\/MathJax.js?delayStartupUntil=configured"}}};
+M.yui.loader = {modules: {}};
+
+//]]>
+</SCRIPT>
+ 
+<SCRIPT>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-45105526-1', 'covenantuniversity.edu.ng');
+  ga('send', 'pageview');
+
+</SCRIPT>
+    
+<META name="viewport" content="width=device-width, initial-scale=1.0"> 
+<SCRIPT src="http://10.0.3.32/lib/requirejs.php/1474366921/core/first.js" type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="core/first"></SCRIPT>
+
+<SCRIPT src="http://10.0.3.32/lib/javascript.php/1474366921/lib/requirejs/jquery-private.js" type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jqueryprivate"></SCRIPT>
+
+<SCRIPT src="http://10.0.3.32/lib/javascript.php/1474366921/lib/jquery/jquery-1.12.1.min.js" type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery"></SCRIPT>
+</HEAD> 
+<BODY class="format-site  path-user ie ie11 dir-ltr lang-en yui-skin-sam yui3-skin-sam 10-0-3-32 pagelayout-mypublic course-1 context-25787 two-column notediting has-region-content empty-region-content has-region-side-pre used-region-side-pre has-region-footer empty-region-footer side-pre-only jsenabled hasaffix" 
+id="page-user-profile">
+<DIV class="skiplinks"><A class="skip" href="#maincontent">Skip to main 
+content</A></DIV>
+<SCRIPT src="http://10.0.3.32/theme/yui_combo.php?rollup/3.17.2/yui-moodlesimple-min.js&amp;rollup/1474366921/mcore-min.js" type="text/javascript"></SCRIPT>
+
+<DIV id="yui3-css-stamp" style="visibility: hidden !important; position: absolute !important;"></DIV>
+<SCRIPT src="http://10.0.3.32/lib/javascript.php/1474366921/lib/javascript-static.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT type="text/javascript">
+//<![CDATA[
+document.body.className += ' jsenabled';
+//]]>
+</SCRIPT>
+ 
+<DIV class="frontpageheader flexlayout" id="body-header">
+<DIV class="container">
+<DIV class="logotitle headertoggled"><A href="http://10.0.3.32"><IMG class="campuslogodesktop" 
+alt="Header logo representing the corporate design" src="http://10.0.3.32/theme/image.php/campus/theme/1478706134/logo"><IMG 
+class="campuslogosmalldevice" alt="Header logo representing the corporate design" 
+src="http://10.0.3.32/theme/image.php/campus/theme/1478706134/logo_responsive"></A></DIV>
+<DIV class="backgroundcontainer right"><IMG class="campusdesktop headertoggled" 
+alt="Header image representing the corporate design" src="http://10.0.3.32/theme/image.php/campus/theme/1478706134/background"><IMG 
+class="campussmalldevice" alt="Header image representing the corporate design" 
+src="http://10.0.3.32/theme/image.php/campus/theme/1478706134/background_responsive"></DIV></DIV></DIV><HEADER 
+class="campusnavbar navbar navbar-static-top affix-top"><NAV class="navbar-inner">
+<DIV class="container-fluid">
+<H1 class="brand">Tochukwu Nkemdilim</H1><A class="btn btn-navbar" data-target=".campusnav" 
+data-toggle="collapse"><SPAN class="icon-bar"></SPAN><SPAN 
+class="icon-bar"></SPAN><SPAN class="icon-bar"></SPAN><SPAN 
+class="icon-bar"></SPAN></A>
+<DIV class="campusnav nav-collapse collapse">
+<UL class="nav cpusermenu"></UL>
+<UL class="nav pull-right">
+  <LI>
+  <DIV class="search-input-wrapper" id="58d2b1b67295f">
+  <DIV tabindex="0" role="button"><IMG title="Search" class="smallicon" alt="Search" 
+  src="http://10.0.3.32/theme/image.php/campus/core/1478706134/a/search"></DIV>
+  <FORM class="search-input-form" 
+  action="http://10.0.3.32/search/index.php"><LABEL class="accesshide" for="id_q_58d2b1b67295f">Enter 
+  your search 
+query</LABEL><INPUT name="q" tabindex="-1" id="id_q_58d2b1b67295f" type="text" size="13" placeholder="Search"></FORM></DIV></LI>
+  <LI></LI>
+  <LI class="usermenu">
+  <UL class="nav">
+    <LI class="dropdown"><A class="dropdown-toggle" href="#" data-toggle="dropdown"><IMG 
+    width="35" height="35" title="Picture of Tochukwu Nkemdilim" class="userpicture defaultuserpic" 
+    alt="Picture of Tochukwu Nkemdilim" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/u/f2">Tochukwu<SPAN 
+    class="fa fa-caret-right"></SPAN></A>
+    <UL class="dropdown-menu pull-right">
+      <LI>
+      <DIV class="logininfo"><SPAN class="loggedintext">You are logged in as <A 
+      title="View profile" 
+      href="http://10.0.3.32/user/profile.php?id=13731">Tochukwu 
+      Nkemdilim</A></SPAN>
+      <DIV><A 
+      href="http://10.0.3.32/login/logout.php?sesskey=3pVzPPs47c"><EM><SPAN 
+      class="fa fa-sign-out"></SPAN>Log out</EM></A></DIV></DIV></LI>
+      <LI class="dropdown-submenu preferences"><A class="dropdown-toggle" href="#" 
+      data-toggle="dropdown"><EM><SPAN 
+      class="fa fa-cog"></SPAN>Preferences</EM></A>
+      <UL class="dropdown-menu">
+        <LI><A href="http://10.0.3.32/user/edit.php?id=13731"><EM><SPAN class="fa fa-user"></SPAN>Edit 
+        profile</EM></A></LI>
+        <LI><A href="http://10.0.3.32/login/change_password.php"><EM><SPAN 
+        class="fa fa-key"></SPAN>Change password</EM></A></LI>
+        <LI><A href="http://10.0.3.32/blog/preferences.php"><EM><SPAN class="fa fa-rss-square"></SPAN>Blog 
+        preferences</EM></A></LI>
+        <LI><A href="http://10.0.3.32/badges/preferences.php"><EM><SPAN class="fa fa-certificate"></SPAN>Badge 
+        preferences</EM></A></LI></UL></LI>
+      <HR class="sep">
+
+      <LI><A href="http://10.0.3.32/calendar/view.php"><EM><SPAN class="fa fa-calendar"></SPAN>Calendar</EM></A></LI>
+      <LI><A href="http://10.0.3.32/message/index.php"><EM><SPAN class="fa fa-envelope"></SPAN>Messages</EM></A></LI>
+      <LI><A href="http://10.0.3.32/user/files.php"><EM><SPAN 
+      class="fa fa-file"></SPAN>Private files</EM></A></LI>
+      <LI><A href="http://10.0.3.32/mod/forum/user.php?id=13731"><EM><SPAN 
+      class="fa fa-list-alt"></SPAN>Forum posts</EM></A></LI>
+      <LI><A href="http://10.0.3.32/mod/forum/user.php?id=13731&amp;mode=discussions"><EM><SPAN 
+      class="fa fa-list"></SPAN>Discussions</EM></A></LI>
+      <HR class="sep">
+
+      <LI><A href="http://10.0.3.32/grade/report/overview/index.php?id=205&amp;userid=13731"><EM><SPAN 
+      class="fa fa-list-alt"></SPAN>My grades</EM></A></LI>
+      <LI><A href="http://10.0.3.32/badges/mybadges.php"><EM><SPAN class="fa fa-certificate"></SPAN>Badges</EM></A></LI></UL></LI></UL></LI>
+  <LI class="nav headertogglemenu"><A title="Fullscreen toggle"><SPAN title="Fullscreen toggle icon" 
+  class="headertoggle fa fa-expand"></SPAN></A></LI></UL></DIV></DIV></NAV></HEADER>
+<DIV class="container-fluid" id="page"><HEADER class="clearfix" 
+id="page-header">
+<DIV class="clearfix" id="page-navbar"><NAV class="breadcrumb-nav"><SPAN class="accesshide">Page 
+path</SPAN>
+<UL class="breadcrumb">
+  <LI><SPAN itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><A 
+  href="http://10.0.3.32/" itemprop="url"><SPAN 
+  itemprop="title">Home</SPAN></A></SPAN><SPAN class="divider"><SPAN class="fa fa-angle-right fa-lg"></SPAN></SPAN></LI>
+  <LI><SPAN itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><A 
+  href="http://10.0.3.32/my/" itemprop="url"><SPAN 
+  itemprop="title">Dashboard</SPAN></A></SPAN><SPAN class="divider"><SPAN class="fa fa-angle-right fa-lg"></SPAN></SPAN></LI>
+  <LI><SPAN itemtype="http://data-vocabulary.org/Breadcrumb" itemscope=""><A 
+  href="http://10.0.3.32/user/profile.php?id=13731" itemprop="url"><SPAN 
+  itemprop="title">Profile</SPAN></A></SPAN></LI></UL></NAV>
+<DIV class="breadcrumb-button">
+<DIV class="singlebutton">
+<FORM action="http://10.0.3.32/user/profile.php" method="post">
+<DIV><INPUT type="submit" value="Reset page to default"><INPUT name="edit" type="hidden" value="1"><INPUT name="reset" type="hidden" value="1"><INPUT name="id" type="hidden" value="13731"><INPUT name="sesskey" type="hidden" value="3pVzPPs47c"></DIV></FORM></DIV>
+<DIV class="singlebutton">
+<FORM action="http://10.0.3.32/user/profile.php" method="post">
+<DIV><INPUT type="submit" value="Customise this page"><INPUT name="edit" type="hidden" value="1"><INPUT name="id" type="hidden" value="13731"><INPUT name="sesskey" type="hidden" value="3pVzPPs47c"></DIV></FORM></DIV></DIV></DIV>
+<DIV id="course-header"></DIV></HEADER>
+<DIV class="row-fluid" id="page-content">
+<DIV class="span9" id="region-main"><SECTION class="row-fluid" id="region-main-campus"><SPAN 
+class="notifications" id="user-notifications"></SPAN>
+<DIV role="main"><SPAN id="maincontent"></SPAN>
+<DIV class="userprofile"><ASIDE class="block-region" id="block-region-content" 
+data-droptarget="1" data-blockregion="content"></ASIDE>
+<DIV class="profile_tree"><SECTION class="node_category">
+<H3>User details</H3>
+<UL>
+  <LI class="editprofile"><SPAN><A href="http://10.0.3.32/user/edit.php?id=13731&amp;returnto=profile">Edit 
+  profile</A></SPAN></LI>
+  <LI class="contentnode">
+  <DL>
+    <DT>Country</DT>
+    <DD>Nigeria</DD></DL></LI>
+  <LI class="contentnode">
+  <DL>
+    <DT>City/town</DT>
+    <DD>Lagos</DD></DL></LI></UL></SECTION><SECTION class="node_category">
+<H3>Course details</H3>
+<UL>
+  <LI class="contentnode">
+  <DL>
+    <DT>Course profiles</DT>
+    <DD>
+    <UL>
+      <LI><A 
+      href="http://10.0.3.32/user/view.php?id=13731&amp;course=205">CIS226-Statistical 
+      Methods</A></LI>
+      <LI><A 
+      href="http://10.0.3.32/user/view.php?id=13731&amp;course=218">CSC223-Computer 
+      Hardware</A></LI>
+      <LI><A 
+      href="http://10.0.3.32/user/view.php?id=13731&amp;course=220">CSC225-Operating 
+      Systems</A></LI>
+      <LI><A 
+      href="http://10.0.3.32/user/view.php?id=13731&amp;course=406">GEC225-Applied 
+      Computer Programming II</A></LI>
+      <LI><A 
+      href="http://10.0.3.32/user/view.php?id=13731&amp;course=418">GST221-Nigerian 
+       People and Culture</A></LI>
+      <LI><A 
+      href="http://10.0.3.32/user/view.php?id=13731&amp;course=419">GST222-Peace 
+      Studies and Conflict 
+Resolution</A></LI></UL></DD></DL></LI></UL></SECTION><SECTION class="node_category">
+<H3>Miscellaneous</H3>
+<UL>
+  <LI><SPAN><A href="http://10.0.3.32/blog/index.php?userid=13731">Blog 
+  entries</A></SPAN></LI>
+  <LI><SPAN><A href="http://10.0.3.32/mod/forum/user.php?id=13731">Forum 
+  posts</A></SPAN></LI>
+  <LI><SPAN><A href="http://10.0.3.32/mod/forum/user.php?id=13731&amp;mode=discussions">Forum 
+  discussions</A></SPAN></LI>
+  <LI><SPAN><A 
+  href="http://10.0.3.32/admin/tool/lp/plans.php?userid=13731">Learning 
+  plans</A></SPAN></LI></UL></SECTION><SECTION class="node_category">
+<H3>Reports</H3>
+<UL>
+  <LI><SPAN><A href="http://10.0.3.32/report/usersessions/user.php">Browser 
+  sessions</A></SPAN></LI></UL></SECTION><SECTION class="node_category">
+<H3>Login activity</H3>
+<UL>
+  <LI class="contentnode">
+  <DL>
+    <DT>First access to site</DT>
+    <DD>Wednesday, 12 August 2015, 8:26 PM&nbsp; (1 year 222 days)</DD></DL></LI>
+  <LI class="contentnode">
+  <DL>
+    <DT>Last access to site</DT>
+    <DD>Wednesday, 22 March 2017, 6:17 PM&nbsp; (2 
+secs)</DD></DL></LI></UL></SECTION></DIV></DIV></DIV></SECTION></DIV><ASIDE 
+class="span3 block-region" id="block-region-side-pre" data-droptarget="1" 
+data-blockregion="side-pre"><A class="skip skip-block" id="fsb-1" 
+href="#sb-1">Skip Navigation</A>
+<DIV class="block_navigation  block" id="inst4" role="navigation" 
+aria-labelledby="instance-4-header" data-instanceid="4" data-block="navigation">
+<DIV class="header">
+<DIV class="title">
+<DIV class="block_action"></DIV>
+<H2 id="instance-4-header">Navigation</H2></DIV></DIV>
+<DIV class="content">
+<UL class="block_tree list" role="tree" data-ajax-loader="block_navigation/nav_loader">
+  <LI tabindex="-1" class="type_unknown depth_1 contains_branch" 
+  aria-labelledby="label_1_1">
+  <P tabindex="0" class="tree_item branch canexpand navigation_node" role="treeitem" 
+  aria-expanded="true" aria-selected="true" aria-owns="random58d2b1b665fb61_group" 
+  data-collapsible="false"><A tabindex="-1" id="label_1_1" href="http://10.0.3.32/">Home</A></P>
+  <UL tabindex="-1" id="random58d2b1b665fb61_group" role="group">
+    <LI tabindex="-1" class="type_setting depth_2 item_with_icon" 
+    aria-labelledby="label_2_2">
+    <P tabindex="-1" class="tree_item hasicon" role="treeitem" aria-selected="false"><A 
+    tabindex="-1" id="label_2_2" href="http://10.0.3.32/my/"><IMG tabindex="-1" 
+    class="smallicon navicon" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/i/navigationitem"><SPAN 
+    tabindex="-1" class="item-content-wrap">Dashboard</SPAN></A></P></LI>
+    <LI tabindex="-1" class="type_course depth_2 contains_branch" 
+    aria-labelledby="label_2_3">
+    <P tabindex="-1" class="tree_item branch" role="treeitem" aria-expanded="false" 
+    aria-selected="false" aria-owns="random58d2b1b665fb63_group"><SPAN tabindex="-1" 
+    title="Covenant University e-Learning" id="label_2_3">Site pages</SPAN></P>
+    <UL tabindex="-1" id="random58d2b1b665fb63_group" role="group" aria-hidden="true">
+      <LI tabindex="-1" class="type_custom depth_3 item_with_icon" 
+      aria-labelledby="label_3_5">
+      <P tabindex="-1" class="tree_item hasicon" role="treeitem" aria-selected="false"><A 
+      tabindex="-1" id="label_3_5" 
+      href="http://10.0.3.32/user/index.php?id=1"><IMG tabindex="-1" class="smallicon navicon" 
+      alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/i/navigationitem"><SPAN 
+      tabindex="-1" class="item-content-wrap">Participants</SPAN></A></P></LI>
+      <LI tabindex="-1" class="type_unknown depth_3 item_with_icon" 
+      aria-labelledby="label_3_6">
+      <P tabindex="-1" class="tree_item hasicon" role="treeitem" aria-selected="false"><A 
+      tabindex="-1" id="label_3_6" href="http://10.0.3.32/blog/index.php"><IMG 
+      tabindex="-1" class="smallicon navicon" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/i/navigationitem"><SPAN 
+      tabindex="-1" class="item-content-wrap">Site blogs</SPAN></A></P></LI>
+      <LI tabindex="-1" class="type_custom depth_3 item_with_icon" 
+      aria-labelledby="label_3_7">
+      <P tabindex="-1" class="tree_item hasicon" role="treeitem" aria-selected="false"><A 
+      tabindex="-1" id="label_3_7" href="http://10.0.3.32/badges/view.php?type=1"><IMG 
+      tabindex="-1" class="smallicon navicon" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/i/navigationitem"><SPAN 
+      tabindex="-1" class="item-content-wrap">Site badges</SPAN></A></P></LI>
+      <LI tabindex="-1" class="type_setting depth_3 item_with_icon" 
+      aria-labelledby="label_3_8">
+      <P tabindex="-1" class="tree_item hasicon" role="treeitem" aria-selected="false"><A 
+      tabindex="-1" id="label_3_8" href="http://10.0.3.32/tag/search.php"><IMG 
+      tabindex="-1" class="smallicon navicon" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/i/navigationitem"><SPAN 
+      tabindex="-1" class="item-content-wrap">Tags</SPAN></A></P></LI>
+      <LI tabindex="-1" class="type_setting depth_3 item_with_icon" 
+      aria-labelledby="label_3_9">
+      <P tabindex="-1" class="tree_item hasicon" role="treeitem" aria-selected="false"><A 
+      tabindex="-1" id="label_3_9" href="http://10.0.3.32/search/index.php"><IMG 
+      tabindex="-1" class="smallicon navicon" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/i/navigationitem"><SPAN 
+      tabindex="-1" class="item-content-wrap">Search</SPAN></A></P></LI>
+      <LI tabindex="-1" class="type_custom depth_3 item_with_icon" 
+      aria-labelledby="label_3_10">
+      <P tabindex="-1" class="tree_item hasicon" role="treeitem" aria-selected="false"><A 
+      tabindex="-1" id="label_3_10" href="http://10.0.3.32/calendar/view.php?view=month"><IMG 
+      tabindex="-1" class="smallicon navicon" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/i/navigationitem"><SPAN 
+      tabindex="-1" class="item-content-wrap">Calendar</SPAN></A></P></LI>
+      <LI tabindex="-1" class="type_activity depth_3 item_with_icon" 
+      aria-labelledby="label_3_11">
+      <P tabindex="-1" class="tree_item hasicon" role="treeitem" aria-selected="false"><A 
+      tabindex="-1" title="Forum" id="label_3_11" href="http://10.0.3.32/mod/forum/view.php?id=2340"><IMG 
+      tabindex="-1" title="Forum" class="smallicon navicon" alt="Forum" src="http://10.0.3.32/theme/image.php/campus/forum/1478706134/icon"><SPAN 
+      tabindex="-1" class="item-content-wrap">Site news</SPAN></A></P></LI>
+      <LI tabindex="-1" class="type_activity depth_3 item_with_icon" 
+      aria-labelledby="label_3_14">
+      <P tabindex="-1" class="tree_item hasicon" role="treeitem" aria-selected="false"><A 
+      tabindex="-1" title="Book" id="label_3_14" href="http://10.0.3.32/mod/book/view.php?id=12859"><IMG 
+      tabindex="-1" title="Book" class="smallicon navicon" alt="Book" src="http://10.0.3.32/theme/image.php/campus/book/1478706134/icon"><SPAN 
+      tabindex="-1" class="item-content-wrap">HOW TO RECOGNIZE AND AVOID 
+      PLAGIARISM (TUTORIAL) b...</SPAN></A></P></LI></UL></LI>
+    <LI tabindex="-1" class="type_system depth_2 contains_branch" 
+    aria-labelledby="label_2_15">
+    <P tabindex="-1" class="tree_item branch" id="expandable_branch_0_mycourses" 
+    role="treeitem" aria-expanded="false" aria-selected="false" data-node-type="0" 
+    data-node-key="mycourses" data-node-id="expandable_branch_0_mycourses" 
+    data-loaded="false" data-requires-ajax="true"><SPAN tabindex="-1" id="label_2_15">My 
+    courses</SPAN></P></LI></UL></LI></UL></DIV></DIV><SPAN class="skip-block-to" 
+id="sb-1"></SPAN><A class="skip skip-block" id="fsb-3" href="#sb-3">Skip Online 
+users</A>
+<DIV class="block_online_users  block" id="inst2066" role="complementary" 
+aria-labelledby="instance-2066-header" data-instanceid="2066" data-block="online_users">
+<DIV class="header">
+<DIV class="title">
+<DIV class="block_action"></DIV>
+<H2 id="instance-2066-header">Online users</H2></DIV></DIV>
+<DIV class="content">
+<DIV class="info">(last 5 minutes)</DIV>
+<UL class="list">
+  <LI class="listentry">
+  <DIV class="user"><A title="2 secs" href="http://10.0.3.32/user/view.php?id=13731&amp;course=1"><IMG 
+  width="16" height="16" title="" class="userpicture defaultuserpic" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/u/f2">Tochukwu 
+  Nkemdilim</A></DIV></LI>
+  <LI class="listentry">
+  <DIV class="user"><A title="22 secs" href="http://10.0.3.32/user/view.php?id=18121&amp;course=1"><IMG 
+  width="16" height="16" title="" class="userpicture defaultuserpic" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/u/f2">abimbola 
+  adebisi</A></DIV>
+  <DIV class="message"><A title="Send a message" role="button" href="http://10.0.3.32/message/index.php?id=18121" 
+  data-userid="18121" data-fullname="abimbola adebisi" data-trigger="core_message-messenger::sendmessage"><IMG 
+  class="iconsmall" alt="Send a message" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/t/message"></A></DIV></LI>
+  <LI class="listentry">
+  <DIV class="user"><A title="59 secs" href="http://10.0.3.32/user/view.php?id=16024&amp;course=1"><IMG 
+  width="16" height="16" title="" class="userpicture defaultuserpic" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/u/f2">SHALOM 
+  TAIWO</A></DIV>
+  <DIV class="message"><A title="Send a message" role="button" href="http://10.0.3.32/message/index.php?id=16024" 
+  data-userid="16024" data-fullname="SHALOM TAIWO" data-trigger="core_message-messenger::sendmessage"><IMG 
+  class="iconsmall" alt="Send a message" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/t/message"></A></DIV></LI>
+  <LI class="listentry">
+  <DIV class="user"><A title="1 min 26 secs" href="http://10.0.3.32/user/view.php?id=13301&amp;course=1"><IMG 
+  width="16" height="16" title="" class="userpicture defaultuserpic" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/u/f2">Oluwafisayo 
+  Adeyemi</A></DIV>
+  <DIV class="message"><A title="Send a message" role="button" href="http://10.0.3.32/message/index.php?id=13301" 
+  data-userid="13301" data-fullname="Oluwafisayo Adeyemi" data-trigger="core_message-messenger::sendmessage"><IMG 
+  class="iconsmall" alt="Send a message" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/t/message"></A></DIV></LI>
+  <LI class="listentry">
+  <DIV class="user"><A title="2 mins 2 secs" href="http://10.0.3.32/user/view.php?id=16824&amp;course=1"><IMG 
+  width="16" height="16" title="" class="userpicture defaultuserpic" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/u/f2">Bilkisu 
+  Suleiman Atane</A></DIV>
+  <DIV class="message"><A title="Send a message" role="button" href="http://10.0.3.32/message/index.php?id=16824" 
+  data-userid="16824" data-fullname="Bilkisu Suleiman Atane" data-trigger="core_message-messenger::sendmessage"><IMG 
+  class="iconsmall" alt="Send a message" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/t/message"></A></DIV></LI>
+  <LI class="listentry">
+  <DIV class="user"><A title="2 mins 6 secs" href="http://10.0.3.32/user/view.php?id=9210&amp;course=1"><IMG 
+  width="16" height="16" title="" class="userpicture defaultuserpic" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/u/f2">1403809 
+  Peace Engworo</A></DIV>
+  <DIV class="message"><A title="Send a message" role="button" href="http://10.0.3.32/message/index.php?id=9210" 
+  data-userid="9210" data-fullname="1403809 Peace Engworo" data-trigger="core_message-messenger::sendmessage"><IMG 
+  class="iconsmall" alt="Send a message" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/t/message"></A></DIV></LI>
+  <LI class="listentry">
+  <DIV class="user"><A title="2 mins 23 secs" href="http://10.0.3.32/user/view.php?id=16299&amp;course=1"><IMG 
+  width="16" height="16" title="" class="userpicture defaultuserpic" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/u/f2">nwamaka 
+  ezeanya</A></DIV>
+  <DIV class="message"><A title="Send a message" role="button" href="http://10.0.3.32/message/index.php?id=16299" 
+  data-userid="16299" data-fullname="nwamaka ezeanya" data-trigger="core_message-messenger::sendmessage"><IMG 
+  class="iconsmall" alt="Send a message" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/t/message"></A></DIV></LI>
+  <LI class="listentry">
+  <DIV class="user"><A title="2 mins 48 secs" href="http://10.0.3.32/user/view.php?id=14294&amp;course=1"><IMG 
+  width="16" height="16" title="" class="userpicture defaultuserpic" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/u/f2">Oladayo 
+  Gbenle</A></DIV>
+  <DIV class="message"><A title="Send a message" role="button" href="http://10.0.3.32/message/index.php?id=14294" 
+  data-userid="14294" data-fullname="Oladayo Gbenle" data-trigger="core_message-messenger::sendmessage"><IMG 
+  class="iconsmall" alt="Send a message" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/t/message"></A></DIV></LI>
+  <LI class="listentry">
+  <DIV class="user"><A title="2 mins 55 secs" href="http://10.0.3.32/user/view.php?id=12920&amp;course=1"><IMG 
+  width="16" height="16" title="" class="userpicture defaultuserpic" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/u/f2">David 
+  Daramola</A></DIV>
+  <DIV class="message"><A title="Send a message" role="button" href="http://10.0.3.32/message/index.php?id=12920" 
+  data-userid="12920" data-fullname="David Daramola" data-trigger="core_message-messenger::sendmessage"><IMG 
+  class="iconsmall" alt="Send a message" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/t/message"></A></DIV></LI>
+  <LI class="listentry">
+  <DIV class="user"><A title="3 mins 43 secs" href="http://10.0.3.32/user/view.php?id=16644&amp;course=1"><IMG 
+  width="16" height="16" title="" class="userpicture defaultuserpic" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/u/f2">jessica 
+  omozoje</A></DIV>
+  <DIV class="message"><A title="Send a message" role="button" href="http://10.0.3.32/message/index.php?id=16644" 
+  data-userid="16644" data-fullname="jessica omozoje" data-trigger="core_message-messenger::sendmessage"><IMG 
+  class="iconsmall" alt="Send a message" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/t/message"></A></DIV></LI>
+  <LI class="listentry">
+  <DIV class="user"><A title="4 mins 56 secs" href="http://10.0.3.32/user/view.php?id=12266&amp;course=1"><IMG 
+  width="16" height="16" title="" class="userpicture defaultuserpic" alt="" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/u/f2">Benson 
+  Agada</A></DIV>
+  <DIV class="message"><A title="Send a message" role="button" href="http://10.0.3.32/message/index.php?id=12266" 
+  data-userid="12266" data-fullname="Benson Agada" data-trigger="core_message-messenger::sendmessage"><IMG 
+  class="iconsmall" alt="Send a message" src="http://10.0.3.32/theme/image.php/campus/core/1478706134/t/message"></A></DIV></LI></UL>
+<DIV class="clearer"><!-- --></DIV></DIV></DIV><SPAN class="skip-block-to" id="sb-3"></SPAN><A 
+class="skip skip-block" id="fsb-4" href="#sb-4">Skip Wisdom Marble</A>
+<DIV class="block_glossary_random  block" id="inst1619" role="complementary" 
+aria-labelledby="instance-1619-header" data-instanceid="1619" data-block="glossary_random">
+<DIV class="header">
+<DIV class="title">
+<DIV class="block_action"></DIV>
+<H2 id="instance-1619-header">Wisdom Marble</H2></DIV></DIV>
+<DIV class="content">
+<H3>Criss Jami on Plagarism</H3>
+<DIV class="no-overflow">
+<P><SPAN>“When you have wit of your own, it's a pleasure to credit other people 
+for theirs.”&nbsp;</SPAN></P></DIV>
+<DIV class="footer"><A 
+href="http://10.0.3.32/mod/glossary/view.php?id=3912">View all 
+entries</A></DIV></DIV></DIV><SPAN class="skip-block-to" id="sb-4"></SPAN><A 
+class="skip skip-block" id="fsb-5" href="#sb-5">Skip Activities</A>
+<DIV class="block_activity_modules  block list_block" id="inst2078" role="navigation" 
+aria-labelledby="instance-2078-header" data-instanceid="2078" data-block="activity_modules">
+<DIV class="header">
+<DIV class="title">
+<DIV class="block_action"></DIV>
+<H2 id="instance-2078-header">Activities</H2></DIV></DIV>
+<DIV class="content">
+<UL class="unlist">
+  <LI class="r0">
+  <DIV class="column c1"><A 
+  href="http://10.0.3.32/mod/forum/index.php?id=1"><IMG class="icon" alt="" src="http://10.0.3.32/theme/image.php/campus/forum/1478706134/icon">Forums</A></DIV></LI>
+  <LI class="r1">
+  <DIV class="column c1"><A 
+  href="http://10.0.3.32/course/resources.php?id=1"><IMG class="icon" alt="" 
+  src="http://10.0.3.32/theme/image.php/campus/mod_page/1478706134/icon">Resources</A></DIV></LI></UL></DIV></DIV><SPAN 
+class="skip-block-to" id="sb-5"></SPAN></ASIDE></DIV><FOOTER 
+id="page-footer"><ASIDE class="row-fluid block-region" id="block-region-footer" 
+data-droptarget="1" data-blockregion="footer"></ASIDE>
+<DIV class="row-fluid">
+<DIV class="span12 socialnetworkscontainer">
+<UL class="socialnetworks">
+  <LI><A href="https://www.facebook.com/CovenantUniversity" 
+  target="_blank"><SPAN class="sr-only">Facebook</SPAN><SPAN class="fa fa-2x fa-facebook-square"></SPAN></A></LI>
+  <LI><A href="https://www.youtube.com/channel/UCjX-QsP--9p4nsPPoRACFRQ" target="_blank"><SPAN 
+  class="sr-only">YouTube</SPAN><SPAN 
+  class="fa fa-2x fa-youtube-square"></SPAN></A></LI></UL></DIV></DIV>
+<DIV id="course-footer"></DIV>
+<P class="helplink"></P>     
+<DIV class="logininfo"><SPAN class="loggedintext">You are logged in as <A title="View profile" 
+href="http://10.0.3.32/user/profile.php?id=13731">Tochukwu Nkemdilim</A></SPAN>
+<DIV><A href="http://10.0.3.32/login/logout.php?sesskey=3pVzPPs47c"><EM><SPAN 
+class="fa fa-sign-out"></SPAN>Log out</EM></A></DIV></DIV></FOOTER><SPAN title="Back to top" 
+class="antiGravity"><SPAN class="fa fa-arrow-circle-o-up"></SPAN></SPAN>
+<SCRIPT type="text/javascript">
+//<![CDATA[
+var require = {
+    baseUrl : 'http://10.0.3.32/lib/requirejs.php/1474366921/',
+    // We only support AMD modules with an explicit define() statement.
+    enforceDefine: true,
+    skipDataMain: true,
+
+    paths: {
+        jquery: 'http://10.0.3.32/lib/javascript.php/1474366921/lib/jquery/jquery-1.12.1.min',
+        jqueryui: 'http://10.0.3.32/lib/javascript.php/1474366921/lib/jquery/ui-1.11.4/jquery-ui.min',
+        jqueryprivate: 'http://10.0.3.32/lib/javascript.php/1474366921/lib/requirejs/jquery-private'
+    },
+
+    // Custom jquery config map.
+    map: {
+      // '*' means all modules will get 'jqueryprivate'
+      // for their 'jquery' dependency.
+      '*': { jquery: 'jqueryprivate' },
+
+      // 'jquery-private' wants the real jQuery module
+      // though. If this line was not here, there would
+      // be an unresolvable cyclic dependency.
+      jqueryprivate: { jquery: 'jquery' }
+    }
+};
+
+//]]>
+</SCRIPT>
+ 
+<SCRIPT src="http://10.0.3.32/lib/javascript.php/1474366921/lib/requirejs/require.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT type="text/javascript">
+//<![CDATA[
+require(['core/first'], function() {
+;
+require(["theme_campus/affix"], function(amd) { amd.init(); });;
+require(["theme_campus/header_toggle"], function(amd) { amd.init(); });;
+require(["block_navigation/navblock"], function(amd) { amd.init("4"); });;
+require(["block_settings/settingsblock"], function(amd) { amd.init("5", null); });;
+require(["core/search-input"], function(amd) { amd.init("58d2b1b67295f"); });;
+require(["core/notification"], function(amd) { amd.init(25787, []); });;
+require(["core/log"], function(amd) { amd.setConfig({"level":"warn"}); });
+});
+//]]>
+</SCRIPT>
+ 
+<SCRIPT src="http://10.0.3.32/theme/javascript.php/campus/1478706134/footer" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT type="text/javascript">
+//<![CDATA[
+M.str = {"moodle":{"lastmodified":"Last modified","name":"Name","error":"Error","info":"Information","yes":"Yes","no":"No","ok":"OK","viewallcourses":"View all courses","morehelp":"More help","loadinghelp":"Loading...","cancel":"Cancel","confirm":"Confirm","areyousure":"Are you sure?","closebuttontitle":"Close","unknownerror":"Unknown error"},"repository":{"type":"Type","size":"Size","invalidjson":"Invalid JSON string","nofilesattached":"No files attached","filepicker":"File picker","logout":"Logout","nofilesavailable":"No files available","norepositoriesavailable":"Sorry, none of your current repositories can return files in the required format.","fileexistsdialogheader":"File exists","fileexistsdialog_editor":"A file with that name has already been attached to the text you are editing.","fileexistsdialog_filemanager":"A file with that name has already been attached","renameto":"Rename to \"{$a}\"","referencesexist":"There are {$a} alias\/shortcut files that use this file as their source","select":"Select"},"admin":{"confirmdeletecomments":"You are about to delete comments, are you sure?","confirmation":"Confirmation"},"core_message":{"errorwhilesendingmessage":"An error occurred while sending the message; please try again later.","messagesent":"Message sent","messagetosend":"Message to send","sendingmessage":"Sending message","sendmessage":"Send message","viewconversation":"View conversation"},"message":{"userisblockingyou":"This user has blocked you from sending messages to them","userisblockingyounoncontact":"{$a} only accepts messages from their contacts."},"core":{"error":"Error"}};
+//]]>
+</SCRIPT>
+ 
+<SCRIPT type="text/javascript">
+//<![CDATA[
+(function() {M.util.load_flowplayer();
+setTimeout("fix_column_widths()", 20);
+Y.use("moodle-filter_mathjaxloader-loader",function() {M.filter_mathjaxloader.configure({"mathjaxconfig":"MathJax.Hub.Config({\r\n    config: [\"Accessible.js\", \"Safe.js\"],\r\n    errorSettings: { message: [\"!\"] },\r\n    skipStartupTypeset: true,\r\n    messageStyle: \"none\"\r\n});\r\n","lang":"en"});
+});
+Y.use("moodle-filter_glossary-autolinker",function() {M.filter_glossary.init_filter_autolinking({"courseid":0});
+});
+Y.use("moodle-core_message-messenger",function() {Y.M.core_message.messenger.init([]);
+});
+M.util.help_popups.setup(Y);
+Y.use("moodle-core-popuphelp",function() {M.core.init_popuphelp();
+});
+M.util.init_skiplink(Y);
+M.util.init_block_hider(Y, {"id":"inst4","title":"Navigation","preference":"block4hidden","tooltipVisible":"Hide Navigation block","tooltipHidden":"Show Navigation block"});
+M.util.init_block_hider(Y, {"id":"inst2066","title":"Online users","preference":"block2066hidden","tooltipVisible":"Hide Online users block","tooltipHidden":"Show Online users block"});
+M.util.init_block_hider(Y, {"id":"inst1619","title":"Wisdom Marble","preference":"block1619hidden","tooltipVisible":"Hide Wisdom Marble block","tooltipHidden":"Show Wisdom Marble block"});
+M.util.init_block_hider(Y, {"id":"inst2078","title":"Activities","preference":"block2078hidden","tooltipVisible":"Hide Activities block","tooltipHidden":"Show Activities block"});
+ M.util.js_pending('random58d2b1b665fb618'); Y.on('domready', function() { M.util.js_complete("init");  M.util.js_complete('random58d2b1b665fb618'); });
+})();
+//]]>
+</SCRIPT>
+ </DIV></BODY></HTML>
