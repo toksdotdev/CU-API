@@ -145,7 +145,7 @@ namespace Notify.Classes
                     var data = GetHtmlOfTagContainingKeyword("a", "&amp;course=" + id).FirstOrDefault();
                     if (data != null)
                         coursesData.Add(
-                            new Course()
+                            new Course(id)
                             {
                                 Name = data.Split('-')[0].Trim(),
                                 Id = id

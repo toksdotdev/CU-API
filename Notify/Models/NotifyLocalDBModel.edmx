@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NotifyLocalDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="NotifyLocalDBModelStoreContainer">
+          <EntitySet Name="Courses" EntityType="NotifyLocalDBModel.Store.Courses" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Notes" EntityType="NotifyLocalDBModel.Store.Notes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Users" EntityType="NotifyLocalDBModel.Store.Users" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="fkCourseId" Association="NotifyLocalDBModel.Store.fkCourseId">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Notes" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="fkUserId" Association="NotifyLocalDBModel.Store.fkUserId">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Courses" EntitySet="Courses" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="courseId" />
+          </Key>
+          <Property Name="courseId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="portalCourseId" Type="int" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="courseName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="dateAdded" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Notes">
+          <Key>
+            <PropertyRef Name="noteId" />
+          </Key>
+          <Property Name="noteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="portalNoteId" Type="int" Nullable="false" />
+          <Property Name="courseId" Type="int" Nullable="false" />
+          <Property Name="noteName" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="noteCustomPath" Type="varchar" Nullable="false" MaxLength="1000" />
+          <Property Name="dateDownloaded" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="password" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="profilePictureId" Type="int" />
+          <Property Name="dateRegistered" Type="datetime" />
+        </EntityType>
+        <Association Name="fkCourseId">
+          <End Role="Courses" Type="NotifyLocalDBModel.Store.Courses" Multiplicity="1" />
+          <End Role="Notes" Type="NotifyLocalDBModel.Store.Notes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="courseId" />
+            </Principal>
+            <Dependent Role="Notes">
+              <PropertyRef Name="courseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkUserId">
+          <End Role="Users" Type="NotifyLocalDBModel.Store.Users" Multiplicity="1" />
+          <End Role="Courses" Type="NotifyLocalDBModel.Store.Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Courses">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NotifyLocalDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NotifyLocalDBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Courses" EntityType="NotifyLocalDBModel.Cours" />
+          <EntitySet Name="Notes" EntityType="NotifyLocalDBModel.Note" />
+          <EntitySet Name="Users" EntityType="NotifyLocalDBModel.User" />
+          <AssociationSet Name="fkCourseId" Association="NotifyLocalDBModel.fkCourseId">
+            <End Role="Cours" EntitySet="Courses" />
+            <End Role="Note" EntitySet="Notes" />
+          </AssociationSet>
+          <AssociationSet Name="fkUserId" Association="NotifyLocalDBModel.fkUserId">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Cours" EntitySet="Courses" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Cours">
+          <Key>
+            <PropertyRef Name="courseId" />
+          </Key>
+          <Property Type="Int32" Name="courseId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="portalCourseId" Nullable="false" />
+          <Property Type="Int32" Name="userId" Nullable="false" />
+          <Property Type="String" Name="courseName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dateAdded" Precision="3" />
+          <NavigationProperty Name="Notes" Relationship="NotifyLocalDBModel.fkCourseId" FromRole="Cours" ToRole="Note" />
+          <NavigationProperty Name="User" Relationship="NotifyLocalDBModel.fkUserId" FromRole="Cours" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Note">
+          <Key>
+            <PropertyRef Name="noteId" />
+          </Key>
+          <Property Type="Int32" Name="noteId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="portalNoteId" Nullable="false" />
+          <Property Type="Int32" Name="courseId" Nullable="false" />
+          <Property Type="String" Name="noteName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="noteCustomPath" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dateDownloaded" Precision="3" />
+          <NavigationProperty Name="Cours" Relationship="NotifyLocalDBModel.fkCourseId" FromRole="Note" ToRole="Cours" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Type="Int32" Name="userId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="profilePictureId" />
+          <Property Type="DateTime" Name="dateRegistered" Precision="3" />
+          <NavigationProperty Name="Courses" Relationship="NotifyLocalDBModel.fkUserId" FromRole="User" ToRole="Cours" />
+        </EntityType>
+        <Association Name="fkCourseId">
+          <End Type="NotifyLocalDBModel.Cours" Role="Cours" Multiplicity="1" />
+          <End Type="NotifyLocalDBModel.Note" Role="Note" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cours">
+              <PropertyRef Name="courseId" />
+            </Principal>
+            <Dependent Role="Note">
+              <PropertyRef Name="courseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fkUserId">
+          <End Type="NotifyLocalDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="NotifyLocalDBModel.Cours" Role="Cours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="Cours">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NotifyLocalDBModelStoreContainer" CdmEntityContainer="NotifyLocalDBEntities">
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="NotifyLocalDBModel.Cours">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="dateAdded" ColumnName="dateAdded" />
+                <ScalarProperty Name="courseName" ColumnName="courseName" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="portalCourseId" ColumnName="portalCourseId" />
+                <ScalarProperty Name="courseId" ColumnName="courseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notes">
+            <EntityTypeMapping TypeName="NotifyLocalDBModel.Note">
+              <MappingFragment StoreEntitySet="Notes">
+                <ScalarProperty Name="dateDownloaded" ColumnName="dateDownloaded" />
+                <ScalarProperty Name="noteCustomPath" ColumnName="noteCustomPath" />
+                <ScalarProperty Name="noteName" ColumnName="noteName" />
+                <ScalarProperty Name="courseId" ColumnName="courseId" />
+                <ScalarProperty Name="portalNoteId" ColumnName="portalNoteId" />
+                <ScalarProperty Name="noteId" ColumnName="noteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="NotifyLocalDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="dateRegistered" ColumnName="dateRegistered" />
+                <ScalarProperty Name="profilePictureId" ColumnName="profilePictureId" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

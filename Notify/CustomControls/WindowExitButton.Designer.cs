@@ -37,14 +37,14 @@ namespace Notify.CustomControls
             // 
             // CloseOvalShape
             // 
-            this.CloseOvalShape.BackColor = System.Drawing.Color.Red;
+            this.CloseOvalShape.BackColor = System.Drawing.Color.Transparent;
             this.CloseOvalShape.BorderColor = System.Drawing.Color.Red;
             this.CloseOvalShape.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseOvalShape.FillColor = System.Drawing.Color.Red;
             this.CloseOvalShape.FillStyle = Microsoft.VisualBasic.PowerPacks.FillStyle.Solid;
             this.CloseOvalShape.Location = new System.Drawing.Point(1, 1);
             this.CloseOvalShape.Name = "CloseOvalShape";
-            this.CloseOvalShape.SelectionColor = System.Drawing.Color.Red;
+            this.CloseOvalShape.SelectionColor = System.Drawing.Color.Transparent;
             this.CloseOvalShape.Size = new System.Drawing.Size(12, 12);
             this.CloseOvalShape.MouseEnter += new System.EventHandler(this.WindowExitButton_Enter);
             this.CloseOvalShape.MouseLeave += new System.EventHandler(this.WindowExitButton_Leave);
@@ -78,7 +78,7 @@ namespace Notify.CustomControls
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.shapeContainer1);
             this.Cursor = System.Windows.Forms.Cursors.Hand;

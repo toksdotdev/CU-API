@@ -1,4 +1,5 @@
-﻿using Notify.Classes;
+﻿using LinqToDB;
+using Notify.Classes;
 using System;
 using System.IO;
 using System.Threading;
@@ -34,6 +35,16 @@ namespace Notify.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             k.GetCoursesData();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //Course NEWCOURS = new Course();
+            ////NEWCOURS.DownloadNotes(k.Browser);
+            //NEWCOURS.CreateDirectory();
+
+            //Panel k = new Panel();
+            //textBox1.Clear();
         }
     }
 }

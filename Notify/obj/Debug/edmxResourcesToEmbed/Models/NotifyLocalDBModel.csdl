@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NotifyLocalDBModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="NotifyLocalDBEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Courses" EntityType="NotifyLocalDBModel.Cours" />
+    <EntitySet Name="Notes" EntityType="NotifyLocalDBModel.Note" />
+    <EntitySet Name="Users" EntityType="NotifyLocalDBModel.User" />
+    <AssociationSet Name="fkCourseId" Association="NotifyLocalDBModel.fkCourseId">
+      <End Role="Cours" EntitySet="Courses" />
+      <End Role="Note" EntitySet="Notes" />
+    </AssociationSet>
+    <AssociationSet Name="fkUserId" Association="NotifyLocalDBModel.fkUserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Cours" EntitySet="Courses" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cours">
+    <Key>
+      <PropertyRef Name="courseId" />
+    </Key>
+    <Property Type="Int32" Name="courseId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="portalCourseId" Nullable="false" />
+    <Property Type="Int32" Name="userId" Nullable="false" />
+    <Property Type="String" Name="courseName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="dateAdded" Precision="3" />
+    <NavigationProperty Name="Notes" Relationship="NotifyLocalDBModel.fkCourseId" FromRole="Cours" ToRole="Note" />
+    <NavigationProperty Name="User" Relationship="NotifyLocalDBModel.fkUserId" FromRole="Cours" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Note">
+    <Key>
+      <PropertyRef Name="noteId" />
+    </Key>
+    <Property Type="Int32" Name="noteId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="portalNoteId" Nullable="false" />
+    <Property Type="Int32" Name="courseId" Nullable="false" />
+    <Property Type="String" Name="noteName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="noteCustomPath" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="dateDownloaded" Precision="3" />
+    <NavigationProperty Name="Cours" Relationship="NotifyLocalDBModel.fkCourseId" FromRole="Note" ToRole="Cours" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Type="Int32" Name="userId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="profilePictureId" />
+    <Property Type="DateTime" Name="dateRegistered" Precision="3" />
+    <NavigationProperty Name="Courses" Relationship="NotifyLocalDBModel.fkUserId" FromRole="User" ToRole="Cours" />
+  </EntityType>
+  <Association Name="fkCourseId">
+    <End Type="NotifyLocalDBModel.Cours" Role="Cours" Multiplicity="1" />
+    <End Type="NotifyLocalDBModel.Note" Role="Note" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cours">
+        <PropertyRef Name="courseId" />
+      </Principal>
+      <Dependent Role="Note">
+        <PropertyRef Name="courseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fkUserId">
+    <End Type="NotifyLocalDBModel.User" Role="User" Multiplicity="1" />
+    <End Type="NotifyLocalDBModel.Cours" Role="Cours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="Cours">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

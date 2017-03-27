@@ -15,8 +15,8 @@ namespace Notify
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Notify());
-            Application.Run(new Login());
+            Application.Run(new Dashboard());
+            //Application.Run(new Login());
         }
     }
 }

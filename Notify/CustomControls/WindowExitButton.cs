@@ -10,13 +10,39 @@ namespace Notify.CustomControls
 
         public new Color BackColor
         {
-            get { return _bgColor; }
+            private get { return _bgColor; }
             set
             {
-                //_bgColor = value;
-                ////CloseOvalShape.BackColor = value;
-                //panel1.BackColor = value;
-                //this.BackColor = value;
+                _bgColor = value;
+                CloseOvalShape.FillColor = value;
+                CloseOvalShape.BorderColor = value;
+                CloseOvalShape.SelectionColor = Color.Transparent;
+                panel1.BackColor = value;
+            }
+        }
+
+        //public Color PillBackColor
+        //{
+        //    get
+        //    {
+        //        return CloseOvalShape.FillColor;
+        //    }
+        //    set
+        //    {
+        //        _pillBackColor = value;
+        //        pillLabel.BackColor = _pillBackColor;
+        //        rectangleShape1.FillColor = _pillBackColor;
+        //    }
+        //}
+
+        public new EventHandler Click
+        {
+            get { return null; }
+            set
+            {
+                CloseOvalShape.Click += value;
+                panel1.Click += value;
+                shapeContainer1.Click += value;
             }
         }
 
