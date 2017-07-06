@@ -27,10 +27,10 @@ namespace TestingLibrary
             Console.ReadLine();
         }
 
-        private const string COURSE_LINK_TEMPLATE = "/course/view.php?id=";
+        private const string CourseLinkTemplate = "/course/view.php?id=";
 
-        private const string RESOURCES_LINK_TEMPLATE = "/mod/resource/view.php?id=";
-        private const string USER_PROFILE_LINK_TEMPLATE = "/user/profile.php?id=";
+        private const string ResourcesLinkTemplate = "/mod/resource/view.php?id=";
+        private const string UserProfileLinkTemplate = "/user/profile.php?id=";
 
         private static readonly WebBrowser WebBrowser = new WebBrowser();
         private string _serverName;
@@ -50,10 +50,8 @@ namespace TestingLibrary
         /// <returns>Uri of the <code>courseName</code> general page</returns>
         public Uri GenerateCoursePageLinkFromName(string courseName)
         {
-            return new Uri(string.Format("{0}{1}{2}",
-                _serverName,
-                COURSE_LINK_TEMPLATE,
-                GetCoursesData().Where(cd => cd.Name.Equals(courseName))));
+            return new Uri(
+                $"{_serverName}{CourseLinkTemplate}{GetCoursesData().Where(cd => cd.Name.Equals(courseName))}");
         }
 
         /// <summary>
@@ -65,13 +63,9 @@ namespace TestingLibrary
             //navigate to the course page
             NavigatePage(
                     new Uri(
-                        string.Format("{0}{1}{2}",
-                            WebBrowser.Url.Host,
-                            RESOURCES_LINK_TEMPLATE,
-                            courseId
-                        )));
+                        $"{WebBrowser.Url.Host}{ResourcesLinkTemplate}{courseId}"));
 
-            GetHtmlAttributeDataCollectionFromString("a", "href", RESOURCES_LINK_TEMPLATE);
+            GetHtmlAttributeDataCollectionFromString("a", "href", ResourcesLinkTemplate);
         }
 
         /// <summary>
@@ -87,13 +81,9 @@ namespace TestingLibrary
             if (course != null)
                 NavigatePage(
                     new Uri(
-                        string.Format("{0}{1}{2}",
-                            WebBrowser.Url.Host,
-                            RESOURCES_LINK_TEMPLATE,
-                            course.Id
-                        )));
+                        $"{WebBrowser.Url.Host}{ResourcesLinkTemplate}{course.Id}"));
 
-            return GetHtmlAttributeDataCollectionFromString("a", "href", RESOURCES_LINK_TEMPLATE).Cast<Uri>();
+            return GetHtmlAttributeDataCollectionFromString("a", "href", ResourcesLinkTemplate).Cast<Uri>();
         }
 
         /// <summary>
@@ -178,7 +168,7 @@ namespace TestingLibrary
         /// <returns>User profile page url</returns>
         private static Uri GetProfileLink()
         {
-            var link = GetHtmlAttributeDataCollectionFromString("a", "href", USER_PROFILE_LINK_TEMPLATE);
+            var link = GetHtmlAttributeDataCollectionFromString("a", "href", UserProfileLinkTemplate);
 
             return new Uri(link[0]);
         }

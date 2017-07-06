@@ -35,8 +35,8 @@ namespace Notify.Classes
             //browser.Navigate("http://10.0.3.32/mod/resource/view.php?id=16225");
 
             var downloader = new Downloader.DownloadFile(
-                string.Format("{0}{1}{2}", Host, ResourcesLinkTemplate, CourseId),
-                string.Format("Notes/file1"),
+                $"{Host}{ResourcesLinkTemplate}{CourseId}",
+                "Notes/file1",
                 DownloadCompleteCallback);
 
             downloader.DownloadNow();
@@ -44,14 +44,14 @@ namespace Notify.Classes
 
         private void DownloadCompleteCallback(object sender, DownloadDataCompletedEventArgs e)
         {
-            MessageBox.Show(string.Format("Finished Downloading Notes for {0}", CourseId));
+            MessageBox.Show($"Finished Downloading Notes for {CourseId}");
         }
 
         public void WriteNoteDataToDb()
         {
             using (var db = new NotifyLocalDBEntities())
             {
-                db.Notes.Add(new Note()
+                db.Notes.Add(new Note
                 {
                     portalNoteId = CourseId,
                     courseId = CourseId,

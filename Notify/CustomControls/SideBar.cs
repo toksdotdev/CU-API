@@ -4,13 +4,13 @@ namespace Notify
 {
     public partial class SideBar : UserControl
     {
-        private Button navarBaseButton;
+        private Button _navarBaseButton;
 
         public SideBar()
         {
             InitializeComponent();
 
-            this.navarBaseButton = navBarItemButton;
+            this._navarBaseButton = navBarItemButton;
         }
 
         public void AddItem()

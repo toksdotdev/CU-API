@@ -26,7 +26,7 @@ namespace Notify.Classes
         public void CreateDirectory()
         {
             Name = Name;
-            Directory.CreateDirectory(string.Format("NOTES/{0}", Name));
+            Directory.CreateDirectory($"NOTES/{Name}");
         }
 
         public void WriteCourseDataToDb()

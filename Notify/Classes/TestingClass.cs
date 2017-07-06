@@ -14,14 +14,14 @@ namespace Notify.Classes
     internal class TestingClass
     {
         //private const string HOST = "10.0.0.32";
-        private bool htmlDownloaded = true;
+        private bool _htmlDownloaded = true;
 
         #region VARIABLE DECLARATION
 
-        private const string COURSE_LINK_TEMPLATE = "/course/view.php?id=";
+        private const string CourseLinkTemplate = "/course/view.php?id=";
 
-        private const string RESOURCES_LINK_TEMPLATE = "/mod/resource/view.php?id=";
-        private const string USER_PROFILE_LINK_TEMPLATE = "/user/profile.php?id=";
+        private const string ResourcesLinkTemplate = "/mod/resource/view.php?id=";
+        private const string UserProfileLinkTemplate = "/user/profile.php?id=";
 
         public readonly WebBrowser Browser;
         private string _serverName;
@@ -38,8 +38,8 @@ namespace Notify.Classes
             Browser.Navigated += _webBrowser_Navigated;
             Browser.DocumentCompleted += Browser_DocumentCompleted;
             Browser.Navigating += Browser_Navigating;
-            InternetSetCookie("http://10.0.3.32", "MoodleSession", "29n3fh832cvrs0bqve3qhhsia5");
-            InternetSetCookie("http://10.0.3.32", "MOODLEID1", "%2507%2522%25CC%25E0_%25F3%25D5%25DF%25FDpX%25E4l%2519%2525%2521p%2508");
+            //InternetSetCookie("http://10.0.3.32", "MoodleSession", "29n3fh832cvrs0bqve3qhhsia5");
+            //InternetSetCookie("http://10.0.3.32", "MOODLEID1", "%2507%2522%25CC%25E0_%25F3%25D5%25DF%25FDpX%25E4l%2519%2525%2521p%2508");
         }
 
         [DllImport("wininet.dll", CharSet = CharSet.Auto, SetLastError = true)]
@@ -47,12 +47,12 @@ namespace Notify.Classes
 
         private void Browser_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
-            htmlDownloaded = false;
+            _htmlDownloaded = false;
         }
 
         private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            htmlDownloaded = true;
+            _htmlDownloaded = true;
         }
 
         /// <summary>
@@ -62,28 +62,34 @@ namespace Notify.Classes
         /// <returns>Uri of the <code>courseName</code> general page</returns>
         public Uri GenerateCoursePageLinkFromName(string courseName)
         {
-            return new Uri(string.Format("{0}{1}{2}",
-                _serverName,
-                COURSE_LINK_TEMPLATE,
-                GetCoursesData().Where(cd => cd.Name.Equals(courseName))));
+            return new Uri(
+                $"{_serverName}{CourseLinkTemplate}{GetCoursesData().Where(cd => cd.Name.Equals(courseName))}");
         }
 
         /// <summary>
         /// Generates a valid
         /// </summary>
         /// <param name="courseId"></param>
-        public void GetCourseNotesDownloadLinksById(int courseId)
+        public List<string> GetCourseNotesDownloadLinksById(int courseId)
         {
             //navigate to the course page
-            NavigatePage(
-                    new Uri(
-                        string.Format("{0}{1}{2}",
-                            Browser.Url.Host,
-                            RESOURCES_LINK_TEMPLATE,
-                            courseId
-                        )));
+            var url = $"http://{Browser.Url.Host}{CourseLinkTemplate}{courseId}";
 
-            GetHtmlAttributeDataCollectionFromString("a", "href", RESOURCES_LINK_TEMPLATE);
+            NavigatePage(new Uri(url));
+
+            while (!Browser.IsBusy)
+            {
+                var result = GetHtmlAttributeDataCollectionFromString("a", "href", ResourcesLinkTemplate);
+                var u = "";
+                foreach (var res in result)
+                {
+                    u += res + "\n";
+                }
+                MessageBox.Show(u);
+                return result;
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -99,13 +105,9 @@ namespace Notify.Classes
             if (course != null)
                 NavigatePage(
                     new Uri(
-                        string.Format("{0}{1}{2}",
-                            Browser.Url.Host,
-                            RESOURCES_LINK_TEMPLATE,
-                            course.Id
-                        )));
+                        $"{Browser.Url.Host}{ResourcesLinkTemplate}{course.Id}"));
 
-            return GetHtmlAttributeDataCollectionFromString("a", "href", RESOURCES_LINK_TEMPLATE).Cast<Uri>();
+            return GetHtmlAttributeDataCollectionFromString("a", "href", ResourcesLinkTemplate).Cast<Uri>();
         }
 
         /// <summary>
@@ -122,12 +124,12 @@ namespace Notify.Classes
 
             var coursesData = new List<Course>();
 
-            while (htmlDownloaded)
+            while (_htmlDownloaded)
             {
                 //Get all the course link
                 var coursesLinks = GetHtmlAttributeDataCollectionFromString("a", "href", "&amp;course");
 
-                string link = "";
+                var link = "";
 
                 foreach (var coursesLink in coursesLinks)
                 {
@@ -139,7 +141,7 @@ namespace Notify.Classes
                 //get course id from profile link for each course
                 var coursesId = coursesLinks.Select(text => Convert.ToInt32(text.Split(';')[1].Split('=')[1])).ToList();
 
-                string dd = "";
+                var dd = "";
                 foreach (var id in coursesId)
                 {
                     var data = GetHtmlOfTagContainingKeyword("a", "&amp;course=" + id).FirstOrDefault();
@@ -150,7 +152,7 @@ namespace Notify.Classes
                                 Name = data.Split('-')[0].Trim(),
                                 Id = id
                             });
-                    dd += data.Split('-')[0].Trim() + "\n";
+                    if (data != null) dd += data.Split('-')[0].Trim() + "\n";
                 }
                 MessageBox.Show(dd);
                 break;
@@ -204,7 +206,7 @@ namespace Notify.Classes
         /// <param name="tagName"></param>
         /// <param name="keyword"></param>
         /// <returns></returns>
-        private IEnumerable<string> GetHtmlOfTagContainingKeyword(string tagName, string keyword)
+        public IEnumerable<string> GetHtmlOfTagContainingKeyword(string tagName, string keyword)
         {
             if (Browser.Document == null) return null;
 
@@ -227,7 +229,7 @@ namespace Notify.Classes
         /// <returns>User profile page url</returns>
         public Uri GetProfileLink()
         {
-            var link = GetHtmlAttributeDataCollectionFromString("a", "href", USER_PROFILE_LINK_TEMPLATE);
+            var link = GetHtmlAttributeDataCollectionFromString("a", "href", UserProfileLinkTemplate);
 
             return new Uri(link[0]);
         }

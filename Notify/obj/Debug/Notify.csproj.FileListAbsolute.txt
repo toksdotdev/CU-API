@@ -1,7 +1,6 @@
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\bin\Debug\Notify.exe.config
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\bin\Debug\Notify.exe
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\bin\Debug\Notify.pdb
-C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\obj\Debug\Notify.csprojResolveAssemblyReference.cache
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\obj\Debug\Notify.Properties.Resources.resources
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\obj\Debug\Notify.csproj.GenerateResource.Cache
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\obj\Debug\Notify.exe
@@ -20,3 +19,6 @@ C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\No
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\bin\Debug\EntityFramework.xml
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\obj\Debug\Notify.Dashboard.resources
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\obj\Debug\Notify.CustomControls.PillControl.resources
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\obj\Debug\Notify.csprojResolveAssemblyReference.cache

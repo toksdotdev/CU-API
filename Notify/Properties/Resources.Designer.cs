@@ -39,7 +39,7 @@ namespace Notify.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Notify.Properties.Resources", typeof(Resources).Assembly);
+                    var temp = new global::System.Resources.ResourceManager("Notify.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -65,7 +65,7 @@ namespace Notify.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Circled_User_Male_50px_1 {
             get {
-                object obj = ResourceManager.GetObject("Circled_User_Male_50px_1", resourceCulture);
+                var obj = ResourceManager.GetObject("Circled_User_Male_50px_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -75,7 +75,7 @@ namespace Notify.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Circled_User_Male_52px_1 {
             get {
-                object obj = ResourceManager.GetObject("Circled_User_Male_52px_1", resourceCulture);
+                var obj = ResourceManager.GetObject("Circled_User_Male_52px_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -85,7 +85,7 @@ namespace Notify.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Edit_User_Male_32px {
             get {
-                object obj = ResourceManager.GetObject("Edit_User_Male_32px", resourceCulture);
+                var obj = ResourceManager.GetObject("Edit_User_Male_32px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -95,7 +95,7 @@ namespace Notify.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap New_Moon_50px_1 {
             get {
-                object obj = ResourceManager.GetObject("New_Moon_50px_1", resourceCulture);
+                var obj = ResourceManager.GetObject("New_Moon_50px_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -105,7 +105,7 @@ namespace Notify.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap New_Moon_50px_2 {
             get {
-                object obj = ResourceManager.GetObject("New_Moon_50px_2", resourceCulture);
+                var obj = ResourceManager.GetObject("New_Moon_50px_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -115,7 +115,7 @@ namespace Notify.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap New_Moon_50px_3 {
             get {
-                object obj = ResourceManager.GetObject("New_Moon_50px_3", resourceCulture);
+                var obj = ResourceManager.GetObject("New_Moon_50px_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,7 +143,7 @@ namespace Notify.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Resize_Diagonal_10px {
             get {
-                object obj = ResourceManager.GetObject("Resize_Diagonal_10px", resourceCulture);
+                var obj = ResourceManager.GetObject("Resize_Diagonal_10px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

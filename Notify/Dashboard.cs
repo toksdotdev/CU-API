@@ -124,7 +124,7 @@ namespace Notify
                     linkLabel.Location = new Point(9, location.Y + 10 + linkLabel.Size.Height);
                     linkLabel.Name = note.noteCustomPath;
                     linkLabel.TabStop = true;
-                    linkLabel.Text = string.Format(">> {0}", note.noteName);
+                    linkLabel.Text = $@">> {note.noteName}";
 
                     #endregion LINK LABEL CONTROL PROPERTIES
 
@@ -135,7 +135,7 @@ namespace Notify
 
                     linkLabel.Click += delegate
                     {
-                        Process.Start(string.Format("NOTES/{0}/{1}.pdf", result, note1.noteCustomPath));
+                        Process.Start($"NOTES/{result}/{note1.noteCustomPath}.pdf");
                     };
 
                     panel4.Controls.Add(linkLabel);
@@ -155,13 +155,16 @@ namespace Notify
             }
         }
 
-        private static IEnumerable<Cours> GetAllCoursesDetails()
+        private static List<Cours> GetAllCoursesDetails()
         {
+            List<Cours> result;
             using (var db = new NotifyLocalDBEntities())
             {
-                return (from course in db.Courses
-                        select course);
+                result = (from course in db.Courses
+                          select course).ToList();
             }
+
+            return result;
         }
 
         private void windowExitButton2_Click_1(object sender, EventArgs e)
