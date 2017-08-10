@@ -36,26 +36,26 @@ namespace Notify
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.windowExitButton4 = new Notify.CustomControls.WindowExitButton();
+            this.windowExitButton2 = new Notify.CustomControls.WindowExitButton();
+            this.windowExitButton3 = new Notify.CustomControls.WindowExitButton();
+            this.sideBar1 = new Notify.SideBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.guideLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.notePanel = new System.Windows.Forms.Panel();
+            this.pillControl1 = new Notify.CustomControls.PillControl();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pillLabel = new System.Windows.Forms.Label();
-            this.windowExitButton4 = new Notify.CustomControls.WindowExitButton();
-            this.windowExitButton2 = new Notify.CustomControls.WindowExitButton();
-            this.windowExitButton3 = new Notify.CustomControls.WindowExitButton();
-            this.sideBar1 = new Notify.SideBar();
-            this.pillControl1 = new Notify.CustomControls.PillControl();
             this.windowExitButton1 = new Notify.CustomControls.WindowExitButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.notePanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +72,56 @@ namespace Notify
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(76, 572);
             this.panel1.TabIndex = 0;
+            // 
+            // windowExitButton4
+            // 
+            this.windowExitButton4.AutoSize = true;
+            this.windowExitButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.windowExitButton4.Click = null;
+            this.windowExitButton4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.windowExitButton4.Location = new System.Drawing.Point(51, 6);
+            this.windowExitButton4.MaximumSize = new System.Drawing.Size(17, 18);
+            this.windowExitButton4.MinimumSize = new System.Drawing.Size(17, 18);
+            this.windowExitButton4.Name = "windowExitButton4";
+            this.windowExitButton4.Size = new System.Drawing.Size(17, 18);
+            this.windowExitButton4.TabIndex = 4;
+            this.windowExitButton4.Click += new System.EventHandler(this.windowExitButton4_Click);
+            // 
+            // windowExitButton2
+            // 
+            this.windowExitButton2.AutoSize = true;
+            this.windowExitButton2.BackColor = System.Drawing.Color.Red;
+            this.windowExitButton2.Click = null;
+            this.windowExitButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.windowExitButton2.Location = new System.Drawing.Point(12, 6);
+            this.windowExitButton2.MaximumSize = new System.Drawing.Size(17, 18);
+            this.windowExitButton2.MinimumSize = new System.Drawing.Size(17, 18);
+            this.windowExitButton2.Name = "windowExitButton2";
+            this.windowExitButton2.Size = new System.Drawing.Size(17, 18);
+            this.windowExitButton2.TabIndex = 0;
+            this.windowExitButton2.Click += new System.EventHandler(this.windowExitButton2_Click);
+            // 
+            // windowExitButton3
+            // 
+            this.windowExitButton3.AutoSize = true;
+            this.windowExitButton3.BackColor = System.Drawing.Color.DarkOrange;
+            this.windowExitButton3.Click = null;
+            this.windowExitButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.windowExitButton3.Location = new System.Drawing.Point(32, 6);
+            this.windowExitButton3.MaximumSize = new System.Drawing.Size(17, 18);
+            this.windowExitButton3.MinimumSize = new System.Drawing.Size(17, 18);
+            this.windowExitButton3.Name = "windowExitButton3";
+            this.windowExitButton3.Size = new System.Drawing.Size(17, 18);
+            this.windowExitButton3.TabIndex = 3;
+            this.windowExitButton3.Click += new System.EventHandler(this.windowExitButton3_Click);
+            // 
+            // sideBar1
+            // 
+            this.sideBar1.BackColor = System.Drawing.Color.Transparent;
+            this.sideBar1.Location = new System.Drawing.Point(14, 114);
+            this.sideBar1.Name = "sideBar1";
+            this.sideBar1.Size = new System.Drawing.Size(48, 322);
+            this.sideBar1.TabIndex = 2;
             // 
             // pictureBox1
             // 
@@ -95,7 +145,7 @@ namespace Notify
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.notePanel);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.guideLabel);
@@ -105,17 +155,32 @@ namespace Notify
             this.panel2.Size = new System.Drawing.Size(647, 572);
             this.panel2.TabIndex = 2;
             // 
-            // panel4
+            // notePanel
             // 
-            this.panel4.AutoScroll = true;
-            this.panel4.Controls.Add(this.pillControl1);
-            this.panel4.Controls.Add(this.linkLabel3);
-            this.panel4.Controls.Add(this.linkLabel2);
-            this.panel4.Controls.Add(this.linkLabel1);
-            this.panel4.Location = new System.Drawing.Point(313, 125);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(309, 419);
-            this.panel4.TabIndex = 15;
+            this.notePanel.AutoScroll = true;
+            this.notePanel.Controls.Add(this.pillControl1);
+            this.notePanel.Controls.Add(this.linkLabel3);
+            this.notePanel.Controls.Add(this.linkLabel2);
+            this.notePanel.Controls.Add(this.linkLabel1);
+            this.notePanel.Location = new System.Drawing.Point(313, 125);
+            this.notePanel.Name = "notePanel";
+            this.notePanel.Size = new System.Drawing.Size(309, 419);
+            this.notePanel.TabIndex = 15;
+            // 
+            // pillControl1
+            // 
+            this.pillControl1.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
+            this.pillControl1.AutoSize = true;
+            this.pillControl1.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.pillControl1.BackColor = System.Drawing.Color.Transparent;
+            this.pillControl1.Click = null;
+            this.pillControl1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pillControl1.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.pillControl1.Location = new System.Drawing.Point(12, 291);
+            this.pillControl1.Name = "pillControl1";
+            this.pillControl1.PillBackColor = System.Drawing.Color.Crimson;
+            this.pillControl1.Size = new System.Drawing.Size(259, 40);
+            this.pillControl1.TabIndex = 6;
             // 
             // linkLabel3
             // 
@@ -193,71 +258,6 @@ namespace Notify
             this.pillLabel.TabIndex = 5;
             this.pillLabel.Text = "COURSES:";
             // 
-            // windowExitButton4
-            // 
-            this.windowExitButton4.AutoSize = true;
-            this.windowExitButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.windowExitButton4.Click = null;
-            this.windowExitButton4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.windowExitButton4.Location = new System.Drawing.Point(51, 6);
-            this.windowExitButton4.MaximumSize = new System.Drawing.Size(17, 18);
-            this.windowExitButton4.MinimumSize = new System.Drawing.Size(17, 18);
-            this.windowExitButton4.Name = "windowExitButton4";
-            this.windowExitButton4.Size = new System.Drawing.Size(17, 18);
-            this.windowExitButton4.TabIndex = 4;
-            this.windowExitButton4.Click += new System.EventHandler(this.windowExitButton4_Click);
-            // 
-            // windowExitButton2
-            // 
-            this.windowExitButton2.AutoSize = true;
-            this.windowExitButton2.BackColor = System.Drawing.Color.Red;
-            this.windowExitButton2.Click = null;
-            this.windowExitButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.windowExitButton2.Location = new System.Drawing.Point(12, 6);
-            this.windowExitButton2.MaximumSize = new System.Drawing.Size(17, 18);
-            this.windowExitButton2.MinimumSize = new System.Drawing.Size(17, 18);
-            this.windowExitButton2.Name = "windowExitButton2";
-            this.windowExitButton2.Size = new System.Drawing.Size(17, 18);
-            this.windowExitButton2.TabIndex = 0;
-            this.windowExitButton2.Click += new System.EventHandler(this.windowExitButton2_Click);
-            // 
-            // windowExitButton3
-            // 
-            this.windowExitButton3.AutoSize = true;
-            this.windowExitButton3.BackColor = System.Drawing.Color.DarkOrange;
-            this.windowExitButton3.Click = null;
-            this.windowExitButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.windowExitButton3.Location = new System.Drawing.Point(32, 6);
-            this.windowExitButton3.MaximumSize = new System.Drawing.Size(17, 18);
-            this.windowExitButton3.MinimumSize = new System.Drawing.Size(17, 18);
-            this.windowExitButton3.Name = "windowExitButton3";
-            this.windowExitButton3.Size = new System.Drawing.Size(17, 18);
-            this.windowExitButton3.TabIndex = 3;
-            this.windowExitButton3.Click += new System.EventHandler(this.windowExitButton3_Click);
-            // 
-            // sideBar1
-            // 
-            this.sideBar1.BackColor = System.Drawing.Color.Transparent;
-            this.sideBar1.Location = new System.Drawing.Point(14, 114);
-            this.sideBar1.Name = "sideBar1";
-            this.sideBar1.Size = new System.Drawing.Size(48, 322);
-            this.sideBar1.TabIndex = 2;
-            // 
-            // pillControl1
-            // 
-            this.pillControl1.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-            this.pillControl1.AutoSize = true;
-            this.pillControl1.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.pillControl1.BackColor = System.Drawing.Color.Transparent;
-            this.pillControl1.Click = null;
-            this.pillControl1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pillControl1.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.pillControl1.Location = new System.Drawing.Point(12, 291);
-            this.pillControl1.Name = "pillControl1";
-            this.pillControl1.PillBackColor = System.Drawing.Color.Crimson;
-            this.pillControl1.Size = new System.Drawing.Size(259, 40);
-            this.pillControl1.TabIndex = 6;
-            // 
             // windowExitButton1
             // 
             this.windowExitButton1.AutoSize = true;
@@ -288,8 +288,8 @@ namespace Notify
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.notePanel.ResumeLayout(false);
+            this.notePanel.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -308,7 +308,7 @@ namespace Notify
         private WindowExitButton windowExitButton2;
         private Label label1;
         private Label pillLabel;
-        private Panel panel4;
+        private Panel notePanel;
         private LinkLabel linkLabel3;
         private LinkLabel linkLabel2;
         private LinkLabel linkLabel1;

@@ -1,21 +1,14 @@
-﻿using HtmlAgilityPack;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using HtmlDocument = System.Windows.Forms.HtmlDocument;
 
 namespace Notify.Classes
 {
     internal class TestingClass
     {
-        //private const string HOST = "10.0.0.32";
-        private bool _htmlDownloaded = true;
-
         #region VARIABLE DECLARATION
 
         private const string CourseLinkTemplate = "/course/view.php?id=";
@@ -25,6 +18,9 @@ namespace Notify.Classes
 
         public readonly WebBrowser Browser;
         private string _serverName;
+
+        //private const string HOST = "10.0.0.32";
+        private bool _pageLoadingComplete = true;
 
         #endregion VARIABLE DECLARATION
 
@@ -36,8 +32,10 @@ namespace Notify.Classes
             Browser = new WebBrowser();
 
             Browser.Navigated += _webBrowser_Navigated;
+
             Browser.DocumentCompleted += Browser_DocumentCompleted;
             Browser.Navigating += Browser_Navigating;
+
             //InternetSetCookie("http://10.0.3.32", "MoodleSession", "29n3fh832cvrs0bqve3qhhsia5");
             //InternetSetCookie("http://10.0.3.32", "MOODLEID1", "%2507%2522%25CC%25E0_%25F3%25D5%25DF%25FDpX%25E4l%2519%2525%2521p%2508");
         }
@@ -47,12 +45,17 @@ namespace Notify.Classes
 
         private void Browser_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
-            _htmlDownloaded = false;
+            while (!_pageLoadingComplete)
+            {
+                //do nothing but wait
+            }
+
+            _pageLoadingComplete = false;
         }
 
         private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            _htmlDownloaded = true;
+            _pageLoadingComplete = true;
         }
 
         /// <summary>
@@ -124,17 +127,12 @@ namespace Notify.Classes
 
             var coursesData = new List<Course>();
 
-            while (_htmlDownloaded)
+            while (_pageLoadingComplete)
             {
                 //Get all the course link
                 var coursesLinks = GetHtmlAttributeDataCollectionFromString("a", "href", "&amp;course");
 
-                var link = "";
-
-                foreach (var coursesLink in coursesLinks)
-                {
-                    link += coursesLink + "\n";
-                }
+                var link = coursesLinks.Aggregate("", (current, coursesLink) => current + (coursesLink + "\n"));
 
                 MessageBox.Show(link);
 
@@ -146,12 +144,14 @@ namespace Notify.Classes
                 {
                     var data = GetHtmlOfTagContainingKeyword("a", "&amp;course=" + id).FirstOrDefault();
                     if (data != null)
-                        coursesData.Add(
-                            new Course(id)
-                            {
-                                Name = data.Split('-')[0].Trim(),
-                                Id = id
-                            });
+                    {
+                        var item = new Course(id)
+                        {
+                            Name = data.Split('-')[0].Trim(),
+                            Id = id
+                        };
+                        coursesData.Add(item);
+                    }
                     if (data != null) dd += data.Split('-')[0].Trim() + "\n";
                 }
                 MessageBox.Show(dd);

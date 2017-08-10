@@ -10,7 +10,7 @@ namespace Notify
         {
             InitializeComponent();
 
-            this._navarBaseButton = navBarItemButton;
+            _navarBaseButton = navBarItemButton;
         }
 
         public void AddItem()

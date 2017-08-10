@@ -1,12 +1,11 @@
-﻿using LinqToDB;
-using Notify.Classes;
+﻿using Notify.Classes;
 using Notify.Models;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity.Validation;
-using System.IO;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Notify.Forms
@@ -22,141 +21,139 @@ namespace Notify.Forms
 
             _k.Browser.DocumentCompleted += Browser_DocumentCompleted;
 
-            this.Controls.Add(_k.Browser);
+            Controls.Add(_k.Browser);
             _k.Browser.Show();
             _k.Browser.Dock = DockStyle.Fill;
+        }
+
+        //** Login
+        //** PERFORM FIRST SYNC
+        //      get details
+        //      get notes
+        //      download notes
+        private void AutomateProcess()
+        {
+            GotoProfile();
+            PerformFirstSynchronization();
         }
 
         private static void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void GotoProfile()
         {
             _k.NavigatePage(_k.GetProfileLink());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void PerformFirstSynchronization()
         {
-            var courseData = _k.GetCoursesData();
+            var coursesData = _k.GetCoursesData();
 
-            foreach (var data in courseData)
+            foreach (var course in coursesData)
             {
-                //#region WRITE COURSE DATA TO DB
+                AddCourseToDb(course);
 
-                //using (var db = new NotifyLocalDBEntities())
-                //{
-                //    Cours newCourse = new Cours()
-                //    {
-                //        courseName = data.Name,
-                //        portalCourseId = data.Id,
-                //        userId = 1
-                //    };
+                ProcessCourseNotes(course, GetNotesLink(course.Id));
+            }
+        }
 
-                //    db.Courses.Add(newCourse);
-                //    db.SaveChanges();
-                //}
+        private static string GenerateRandomPath(int id)
+        {
+            return string.Format($"{id}, {new Random().Next()}");
+        }
 
-                //#endregion WRITE COURSE DATA TO DB
+        private void AddCourseToDb(Course courseData)
+        {
+            #region WRITE COURSE DATA TO DB
 
-                var result = _k.GetCourseNotesDownloadLinksById(data.Id);
-
-                foreach (var res in result)
+            using (var db = new NotifyLocalDBEntities())
+            {
+                var newCourse = new Cours()
                 {
-                    var randomPathString = string.Format($"{data.Id}, {new Random().Next()}");
+                    courseName = courseData.Name,
+                    portalCourseId = courseData.Id,
+                    userId = Properties.Settings.Default.UserId
+                };
 
-                    using (var db = new NotifyLocalDBEntities())
+                db.Courses.Add(newCourse);
+                db.SaveChanges();
+            }
+
+            #endregion WRITE COURSE DATA TO DB
+        }
+
+        private IEnumerable<string> GetNotesLink(int courseId)
+        {
+            return _k.GetCourseNotesDownloadLinksById(courseId);
+        }
+
+        private void ProcessCourseNotes(Course courseData, IEnumerable<string> courseNotesDownloadLinks)
+        {
+            foreach (var noteDownloadLink in courseNotesDownloadLinks)
+            {
+                //generate unique name for each note
+                var randomNoteName = GenerateRandomPath(courseData.Id);
+
+                //write note details tp db
+                AddNoteToDb(courseData, randomNoteName, noteDownloadLink);
+
+                //download courses notes
+                DownloadCourseNotes(noteDownloadLink, courseData.Name, randomNoteName);
+            }
+        }
+
+        private static void DownloadCourseNotes(string noteDownloadLink, string courseName, string noteName)
+        {
+            FileDownloader.Download(noteDownloadLink, $"NOTES/{courseName}/{noteName}.pdf", DownloadCompleted);
+        }
+
+        private void AddNoteToDb(Course courseData, string noteName, string downloadLink)
+        {
+            using (var db = new NotifyLocalDBEntities())
+            {
+                #region WRITE NOTE DATA TO DB
+
+                var newCourseNote = new Note
+                {
+                    courseId = courseData.Id,
+                    noteCustomPath = noteName,
+                    dateDownloaded = DateTime.Now,
+                    portalNoteId = Convert.ToInt32(downloadLink.Split('=')[1])
+                };
+
+                newCourseNote.noteName = _k.GetHtmlOfTagContainingKeyword("a", newCourseNote.portalNoteId.ToString()).FirstOrDefault();
+
+                db.Notes.Add(newCourseNote);
+
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    #region LOGGING
+
+                    foreach (var eve in ex.EntityValidationErrors)
                     {
-                        #region WRITE NOTE DATA TO DB
+                        Trace.WriteLine($"Entity of type \"{eve.Entry.Entity.GetType().Name}\" in state \"{eve.Entry.State}\" has the following validation errors:");
 
-                        var newCourse = new Note
+                        foreach (var ve in eve.ValidationErrors)
                         {
-                            courseId = data.Id,
-                            noteCustomPath = randomPathString,
-                            dateDownloaded = DateTime.Now,
-                            portalNoteId = Convert.ToInt32(res.Split('=')[1])
-                        };
-                        newCourse.noteName = _k.GetHtmlOfTagContainingKeyword("a", newCourse.portalNoteId.ToString())
-                            .FirstOrDefault();
-
-                        var count = 0;
-                        try
-                        {
-                            count = ((from note in db.Notes select note.noteId).Max().Equals(null))
-                                ? 1
-                                : (from note in db.Notes select note.noteId).Max();
+                            Trace.WriteLine($"- Property: \"{ve.PropertyName}\", Error: \"{ve.ErrorMessage}\"");
                         }
-                        catch (Exception)
-                        {
-                            // ignored
-                        }
-
-                        //newCourse.noteId = (count.Equals(0)) ? count + 1 : 1;
-
-                        db.Notes.Add(newCourse);
-
-                        try
-                        {
-                            db.SaveChanges();
-                        }
-                        catch (DbEntityValidationException ex)
-                        {
-                            foreach (var eve in ex.EntityValidationErrors)
-                            {
-                                MessageBox.Show(
-                                    $"Entity of type \"{eve.Entry.Entity.GetType().Name}\" in state \"{eve.Entry.State}\" has the following validation errors:");
-                                foreach (var ve in eve.ValidationErrors)
-                                {
-                                    MessageBox.Show($"- Property: \"{ve.PropertyName}\", Error: \"{ve.ErrorMessage}\"");
-                                }
-                            }
-                            throw;
-                        }
-
-                        #endregion WRITE NOTE DATA TO DB
                     }
 
-                    #region DOWNLOAD NOTE
-
-                    //
-                    var downloaderEngine = new Downloader
-                        .DownloadFile(res, $"NOTES/{data.Name}/{randomPathString}.pdf", DownloadCompleted);
-
-                    #endregion DOWNLOAD NOTE
-
-                    MessageBox.Show(res);
+                    #endregion LOGGING
                 }
+
+                #endregion WRITE NOTE DATA TO DB
             }
         }
 
         private static void DownloadCompleted(object sender, DownloadDataCompletedEventArgs e)
         {
-            MessageBox.Show("completed download");
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            var randomPathString = $"{220}{new Random().Next()}";
-
-            //Course NEWCOURS = new Course();
-            ////NEWCOURS.DownloadNotes(k.Browser);
-            //NEWCOURS.CreateDirectory();
-
-            //Panel k = new Panel();
-            //textBox1.Clear();
-
-            var engine = new Downloader.DownloadFile(
-                    "http://10.0.3.32/mod/resource/view.php?id=16272",
-                    $"NOTES/{randomPathString}.pdf",
-                    DownloadCompleted
-               );
-
-            engine.DownloadNow();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            //k.GetCourseNotesDownloadLinksById(220);
+            Trace.TraceInformation("Completed all notes download");
         }
     }
 }

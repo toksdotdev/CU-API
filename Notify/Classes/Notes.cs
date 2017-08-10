@@ -1,11 +1,7 @@
 ﻿using Notify.Models;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Notify.Classes
@@ -25,7 +21,7 @@ namespace Notify.Classes
 
         public Notes(int courseId, int noteId)
         {
-            this.CourseId = courseId;
+            CourseId = courseId;
             courseId = noteId;
         }
 

@@ -1,16 +1,11 @@
-﻿using Notify.Classes;
-using Notify.CustomControls;
-using Notify.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Notify.CustomControls;
+using Notify.Models;
 
 namespace Notify
 {
@@ -19,6 +14,31 @@ namespace Notify
         private Color _tempBackColor = default(Color);
         private readonly List<Note> _noteCollection;
 
+        /// <summary>
+        /// Point for positioning of course button pills
+        /// </summary>
+        private Point _point = new Point(15, 80);
+
+        /// <summary>
+        /// A detailed collection of users courses
+        /// </summary>
+        private static IEnumerable<Cours> AllCoursesDetailsEnumerable
+        {
+            get
+            {
+                List<Cours> result;
+                using (var db = new NotifyLocalDBEntities())
+                {
+                    result = (from course in db.Courses select course).ToList();
+                }
+
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Dashboard()
         {
             InitializeComponent();
@@ -26,8 +46,11 @@ namespace Notify
             windowExitButton1.BackColor = Color.Aqua;
         }
 
-        private Point _point = new Point(15, 80);
-
+        /// <summary>
+        /// Load all the pills into view
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Dashboard_Load(object sender, EventArgs e)
         {
             try
@@ -40,12 +63,14 @@ namespace Notify
             }
         }
 
-        //do this asynchronously
+        /// <summary>
+        /// Generates button pills for each course
+        /// </summary>
         private void LoadCoursesPills()
         {
-            var courses = GetAllCoursesDetails();
-
             //Load Courses
+            var courses = AllCoursesDetailsEnumerable;
+
             foreach (var course in courses)
             {
                 #region CREATE PILL BUTTON FOR EACH COURSE
@@ -72,8 +97,9 @@ namespace Notify
                 pillControl.Click += delegate
                 {
                     MessageBox.Show("clicked");
-                    LoadCourseNotes(course1.courseId);
+                    LoadCourseNotesLabel(course1.courseId);
                 };
+
                 pillControl.Location = new Point(15, _point.Y + 10 + pillControl.Height);
 
                 _point = new Point(8, pillControl.Location.Y);
@@ -85,109 +111,126 @@ namespace Notify
             }
         }
 
-        private void LoadCourseNotes(int courseId)
+        /// <summary>
+        /// Generate label for all notes unser a course Id
+        /// </summary>
+        /// <param name="courseId"></param>
+        private void LoadCourseNotesLabel(int courseId)
         {
-            using (var db = new NotifyLocalDBEntities())
+            var noteData = GetCourseNotesFromDb(courseId);
+            var location = new Point(9, 14);
+
+            foreach (var note in noteData)
             {
-                var noteData = (from notes in db.Notes
-                                where notes.courseId.Equals(courseId)
-                                select notes).ToList();
-                var location = new Point(9, 14);
+                #region CREATE LINKLABEL FOR EACH NOTE IN A COURSE
 
-                foreach (var note in noteData)
+                _noteCollection.Add(new Note
                 {
-                    #region CREATE LINKLABEL FOR EACH NOTE IN A COURSE
+                    noteName = note.noteName,
+                    noteCustomPath = note.noteCustomPath
+                });
 
-                    _noteCollection.Add(new Note()
-                    {
-                        noteName = note.noteName,
-                        noteCustomPath = note.noteCustomPath,
-                    });
-
-                    var linkLabel = new LinkLabel
-                    {
-                        #region LINK LABEL CONTROL PROPERTIES
-
-                        AutoSize = true,
-                        BackColor = System.Drawing.SystemColors.Window,
-                        Font = new System.Drawing.Font(
-                            "Microsoft YaHei UI Light", 9F, System.Drawing.FontStyle.Italic,
-                            System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                        LinkColor = System.Drawing.Color.DarkOliveGreen,
-                        Size = new System.Drawing.Size(187, 17)
-
-                        #endregion LINK LABEL CONTROL PROPERTIES
-                    };
-
+                var linkLabel = new LinkLabel
+                {
                     #region LINK LABEL CONTROL PROPERTIES
 
-                    linkLabel.Location = new Point(9, location.Y + 10 + linkLabel.Size.Height);
-                    linkLabel.Name = note.noteCustomPath;
-                    linkLabel.TabStop = true;
-                    linkLabel.Text = $@">> {note.noteName}";
+                    AutoSize = true,
+                    BackColor = SystemColors.Window,
+                    Font = new Font(
+                        "Microsoft YaHei UI Light", 9F, FontStyle.Italic,
+                        GraphicsUnit.Point, 0),
+                    LinkColor = Color.DarkOliveGreen,
+                    Size = new Size(187, 17)
 
                     #endregion LINK LABEL CONTROL PROPERTIES
+                };
 
-                    var note1 = note;
-                    var result = (from data in db.Courses
-                                  where data.courseId.Equals(courseId)
-                                  select data.courseName).FirstOrDefault();
+                #region LINK LABEL CONTROL PROPERTIES
 
-                    linkLabel.Click += delegate
-                    {
-                        Process.Start($"NOTES/{result}/{note1.noteCustomPath}.pdf");
-                    };
+                linkLabel.Location = new Point(9, location.Y + 10 + linkLabel.Size.Height);
+                linkLabel.Name = note.noteCustomPath;
+                linkLabel.TabStop = true;
+                linkLabel.Text = $@">> {note.noteName}";
 
-                    panel4.Controls.Add(linkLabel);
-                    linkLabel.Show();
+                #endregion LINK LABEL CONTROL PROPERTIES
 
-                    #endregion CREATE LINKLABEL FOR EACH NOTE IN A COURSE
-                }
+                linkLabel.Click += delegate
+                {
+                    Process.Start($"NOTES/{GetCourseNameById(courseId)}/{note.noteCustomPath}.pdf");
+                };
+
+                notePanel.Controls.Add(linkLabel);
+
+                linkLabel.Show();
+
+                #endregion CREATE LINKLABEL FOR EACH NOTE IN A COURSE
             }
         }
 
-        private static IEnumerable<string> GetCourseNames()
+        /// <summary>
+        /// Retrieves all notes from DB for a single course
+        /// </summary>
+        /// <param name="courseId">Id of course</param>
+        /// <returns>Notes for course</returns>
+        private static IEnumerable<Note> GetCourseNotesFromDb(int courseId)
         {
             using (var db = new NotifyLocalDBEntities())
             {
-                return (from course in db.Courses
-                        select course.courseName).ToList();
+                return
+                    (from notes in db.Notes
+                     where notes.courseId.Equals(courseId)
+                     select notes).ToList();
             }
         }
 
-        private static List<Cours> GetAllCoursesDetails()
+        /// <summary>
+        /// Get the course name of a course from its ID
+        /// </summary>
+        /// <param name="courseId">id of course to get its name</param>
+        /// <returns>Name of id's course</returns>
+        private static string GetCourseNameById(int courseId)
         {
-            List<Cours> result;
             using (var db = new NotifyLocalDBEntities())
             {
-                result = (from course in db.Courses
-                          select course).ToList();
+                return (
+                    from data in db.Courses
+                    where data.courseId.Equals(courseId)
+                    select data.courseName).FirstOrDefault();
             }
-
-            return result;
         }
 
-        private void windowExitButton2_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        #region WINDOW BAR BUTTONS
 
+        /// <summary>
+        /// Close the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void windowExitButton2_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// Minimise the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void windowExitButton3_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            WindowState = FormWindowState.Minimized;
         }
 
+        /// <summary>
+        /// Maximise the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void windowExitButton4_Click(object sender, EventArgs e)
         {
-            if (WindowState.Equals(FormWindowState.Maximized))
-                WindowState = FormWindowState.Normal;
-            else
-                WindowState = FormWindowState.Maximized;
+            WindowState = WindowState.Equals(FormWindowState.Maximized) ? FormWindowState.Normal : FormWindowState.Maximized;
         }
+
+        #endregion WINDOW BAR BUTTONS
     }
 }

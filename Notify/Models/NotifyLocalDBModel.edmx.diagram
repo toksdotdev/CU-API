@@ -7,7 +7,7 @@
       <Diagram DiagramId="e7d0ae7d890140c7ae294237b46cb2dd" Name="Diagram1" ZoomLevel="83">
         <EntityTypeShape EntityType="NotifyLocalDBModel.Cours" Width="1.5" PointX="8.875" PointY="4.75" />
         <EntityTypeShape EntityType="NotifyLocalDBModel.Note" Width="1.5" PointX="11.375" PointY="4.5" />
-        <EntityTypeShape EntityType="NotifyLocalDBModel.User" Width="1.5" PointX="6.75" PointY="4.5" />
+        <EntityTypeShape EntityType="NotifyLocalDBModel.User" Width="1.5" PointX="6.875" PointY="4.5" />
         <AssociationConnector Association="NotifyLocalDBModel.fkCourseId" />
         <AssociationConnector Association="NotifyLocalDBModel.fkUserId" />
       </Diagram>

@@ -1,8 +1,6 @@
 ﻿using Notify.Models;
 using System;
 using System.IO;
-using System.Net;
-using System.Windows.Forms;
 
 namespace Notify.Classes
 {
@@ -20,12 +18,16 @@ namespace Notify.Classes
 
         public Course(int userId)
         {
-            this.UserId = userId;
+            UserId = userId;
+
+            if (!Directory.Exists($"NOTES/{Name}"))
+            {
+                CreateDirectory();
+            }
         }
 
-        public void CreateDirectory()
+        private void CreateDirectory()
         {
-            Name = Name;
             Directory.CreateDirectory($"NOTES/{Name}");
         }
 
@@ -33,13 +35,14 @@ namespace Notify.Classes
         {
             using (var db = new NotifyLocalDBEntities())
             {
-                db.Courses.Add(new Cours()
+                var cours = new Cours
                 {
                     courseName = Name,
                     portalCourseId = Id,
                     dateAdded = DateTime.Now,
                     userId = UserId
-                });
+                };
+                db.Courses.Add(cours);
 
                 db.SaveChanges();
             }
