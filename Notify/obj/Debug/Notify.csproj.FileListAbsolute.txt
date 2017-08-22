@@ -21,3 +21,4 @@ C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\No
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\obj\Debug\Notify.CustomControls.PillControl.resources
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
 C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify\obj\Debug\Notify.csprojResolveAssemblyReference.cache

@@ -29,7 +29,7 @@ namespace Notify
                 List<Cours> result;
                 using (var db = new NotifyLocalDBEntities())
                 {
-                    result = (from course in db.Courses select course).ToList();
+                    result = db.Courses.Select(course => course).ToList();
                 }
 
                 return result;
@@ -93,11 +93,10 @@ namespace Notify
                     pillControl.PillBackColor = _tempBackColor;
                 };
 
-                var course1 = course;
                 pillControl.Click += delegate
                 {
                     MessageBox.Show("clicked");
-                    LoadCourseNotesLabel(course1.courseId);
+                    LoadCourseNotesLabel(course.courseId);
                 };
 
                 pillControl.Location = new Point(15, _point.Y + 10 + pillControl.Height);
@@ -154,7 +153,7 @@ namespace Notify
 
                 #endregion LINK LABEL CONTROL PROPERTIES
 
-                linkLabel.Click += delegate
+                linkLabel.Click += (obj, sender) =>
                 {
                     Process.Start($"NOTES/{GetCourseNameById(courseId)}/{note.noteCustomPath}.pdf");
                 };
@@ -176,10 +175,7 @@ namespace Notify
         {
             using (var db = new NotifyLocalDBEntities())
             {
-                return
-                    (from notes in db.Notes
-                     where notes.courseId.Equals(courseId)
-                     select notes).ToList();
+                return db.Notes.Where(notes => notes.courseId.Equals(courseId)).ToList();
             }
         }
 

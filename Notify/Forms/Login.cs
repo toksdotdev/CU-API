@@ -35,6 +35,8 @@ namespace Notify.Forms
         {
             GotoProfile();
             PerformFirstSynchronization();
+
+            MessageBox.Show("Completed");
         }
 
         private static void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
@@ -63,7 +65,7 @@ namespace Notify.Forms
             return string.Format($"{id}, {new Random().Next()}");
         }
 
-        private void AddCourseToDb(Course courseData)
+        private static void AddCourseToDb(Course courseData)
         {
             #region WRITE COURSE DATA TO DB
 
@@ -95,7 +97,7 @@ namespace Notify.Forms
                 //generate unique name for each note
                 var randomNoteName = GenerateRandomPath(courseData.Id);
 
-                //write note details tp db
+                //write note details to db
                 AddNoteToDb(courseData, randomNoteName, noteDownloadLink);
 
                 //download courses notes
