@@ -5,7 +5,10 @@ using System.Text;
 
 namespace Notify.OnlineNoteWatcher
 {
-    public class Class1
+    public class Portal
     {
+        public void StartWatch()
+        {
+        }
     }
 }

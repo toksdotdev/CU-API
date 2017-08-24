@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 
-namespace Notify.Classes
+namespace StudentMoodle
 {
-    internal class TestingClass
+    public class MoodleParser
     {
         #region VARIABLE DECLARATION
 
@@ -27,7 +28,7 @@ namespace Notify.Classes
         /// <summary>
         /// Create the API Object
         /// </summary>
-        public TestingClass()
+        public MoodleParser()
         {
             Browser = new WebBrowser();
 
@@ -40,7 +41,7 @@ namespace Notify.Classes
             //InternetSetCookie("http://10.0.3.32", "MOODLEID1", "%2507%2522%25CC%25E0_%25F3%25D5%25DF%25FDpX%25E4l%2519%2525%2521p%2508");
         }
 
-        [DllImport("wininet.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        [DllImport("wininet.dll", CharSet = CharSet.Ansi, SetLastError = true)]
         private static extern bool InternetSetCookie(string url, string name, string data);
 
         private void Browser_Navigating(object sender, WebBrowserNavigatingEventArgs e)
@@ -170,7 +171,7 @@ namespace Notify.Classes
             var attributeDataCollection = GetHtmlAttributeFromTag(tagName, attribute);
 
             return attributeDataCollection.Where(data => data.Contains(searchString)
-                && !data.Contains(searchString + "=1")).ToList();
+                                                         && !data.Contains(searchString + "=1")).ToList();
         }
 
         /// <summary>
@@ -190,8 +191,8 @@ namespace Notify.Classes
             if (documentBody != null) doc.Load(new StringReader(documentBody.OuterHtml));
 
             var hrefList = doc.DocumentNode.SelectNodes("//" + tagName)
-                              .Select(p => p.GetAttributeValue(attribute, "not found"))
-                              .ToList();
+                .Select(p => p.GetAttributeValue(attribute, "not found"))
+                .ToList();
 
             return hrefList;
         }
@@ -212,9 +213,9 @@ namespace Notify.Classes
             if (documentBody != null) doc.Load(new StringReader(documentBody.OuterHtml));
 
             var hrefList = doc.DocumentNode.SelectNodes("//" + tagName)
-                              .Where(p => p.GetAttributeValue("href", "not found").Contains(keyword))
-                              .Select(cd => cd.InnerHtml)
-                              .ToList();
+                .Where(p => p.GetAttributeValue("href", "not found").Contains(keyword))
+                .Select(cd => cd.InnerHtml)
+                .ToList();
 
             return hrefList;
         }

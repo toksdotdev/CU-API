@@ -1,0 +1,5 @@
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify.OnlineNoteWatcher\obj\Debug\Notify.OnlineNoteWatcher.csprojResolveAssemblyReference.cache
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify.OnlineNoteWatcher\bin\Debug\Notify.OnlineNoteWatcher.dll
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify.OnlineNoteWatcher\bin\Debug\Notify.OnlineNoteWatcher.pdb
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify.OnlineNoteWatcher\obj\Debug\Notify.OnlineNoteWatcher.dll
+C:\Users\Programming\Documents\Visual Studio 2012\Projects\CSC Classes\Notify\Notify.OnlineNoteWatcher\obj\Debug\Notify.OnlineNoteWatcher.pdb
