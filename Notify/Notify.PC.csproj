@@ -82,10 +82,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Course.cs" />
-    <Compile Include="Classes\Downloader.cs" />
-    <Compile Include="Classes\FileDownloader.cs" />
-    <Compile Include="Classes\TestingClass.cs" />
     <Compile Include="CustomControls\PillControl.cs">
       <SubType>UserControl</SubType>
     </Compile>

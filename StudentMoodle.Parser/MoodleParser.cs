@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using HtmlDocument = HtmlAgilityPack.HtmlDocument;
 
 namespace StudentMoodle.Parser
 {
@@ -16,7 +17,8 @@ namespace StudentMoodle.Parser
         private const string ResourcesLinkTemplate = "/mod/resource/view.php?id=";
         private const string UserProfileLinkTemplate = "/user/profile.php?id=";
 
-        public readonly WebBrowser Browser;
+        public WebBrowser Browser { get; }
+
         private string _serverName;
 
         //private const string HOST = "10.0.0.32";
@@ -56,6 +58,14 @@ namespace StudentMoodle.Parser
         private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             _pageLoadingComplete = true;
+        }
+
+        /// <summary>
+        /// Navigate to the homepage of moodle
+        /// </summary>
+        public void NavigateToMoodle()
+        {
+            NavigatePage(new Uri("http://10.0.3.32"));
         }
 
         /// <summary>
@@ -182,7 +192,7 @@ namespace StudentMoodle.Parser
         {
             if (Browser.Document == null) return null;
 
-            var doc = new HtmlAgilityPack.HtmlDocument();
+            var doc = new HtmlDocument();
             var documentBody = Browser.Document.Body;
 
             if (documentBody != null) doc.Load(new StringReader(documentBody.OuterHtml));
@@ -204,7 +214,7 @@ namespace StudentMoodle.Parser
         {
             if (Browser.Document == null) return null;
 
-            var doc = new HtmlAgilityPack.HtmlDocument();
+            var doc = new HtmlDocument();
             var documentBody = Browser.Document.Body;
 
             if (documentBody != null) doc.Load(new StringReader(documentBody.OuterHtml));

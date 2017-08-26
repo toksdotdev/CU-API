@@ -1,5 +1,5 @@
-﻿using Notify.Classes;
-using Notify.Models;
+﻿using Notify.Models;
+using StudentMoodle.Parser;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
@@ -12,18 +12,21 @@ namespace Notify.Forms
 {
     public partial class Login : Form
     {
-        private readonly TestingClass _k = new TestingClass();
+        private readonly MoodleParser _parser;
 
         public Login()
         {
+            _parser = new MoodleParser();
+
             InitializeComponent();
-            _k.NavigatePage(new Uri("http://10.0.3.32"));
 
-            _k.Browser.DocumentCompleted += Browser_DocumentCompleted;
+            _parser.NavigateToMoodle();
 
-            Controls.Add(_k.Browser);
-            _k.Browser.Show();
-            _k.Browser.Dock = DockStyle.Fill;
+            Controls.Add(_parser.Browser);
+
+            _parser.Browser.Show();
+
+            _parser.Browser.Dock = DockStyle.Fill;
         }
 
         //** Login
@@ -39,18 +42,14 @@ namespace Notify.Forms
             MessageBox.Show("Completed");
         }
 
-        private static void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-        }
-
         private void GotoProfile()
         {
-            _k.NavigatePage(_k.GetProfileLink());
+            _parser.NavigatePage(_parser.GetProfileLink());
         }
 
         private void PerformFirstSynchronization()
         {
-            var coursesData = _k.GetCoursesData();
+            var coursesData = _parser.GetCoursesData();
 
             foreach (var course in coursesData)
             {
@@ -65,13 +64,13 @@ namespace Notify.Forms
             return string.Format($"{id}, {new Random().Next()}");
         }
 
-        private static void AddCourseToDb(Course courseData)
+        private static void AddCourseToDb(CourseCreator courseData)
         {
             #region WRITE COURSE DATA TO DB
 
             using (var db = new NotifyLocalDBEntities())
             {
-                var newCourse = new Cours()
+                var newCourse = new Models.Cours()
                 {
                     courseName = courseData.Name,
                     portalCourseId = courseData.Id,
@@ -87,10 +86,10 @@ namespace Notify.Forms
 
         private IEnumerable<string> GetNotesLink(int courseId)
         {
-            return _k.GetCourseNotesDownloadLinksById(courseId);
+            return _parser.GetCourseNotesDownloadLinksById(courseId);
         }
 
-        private void ProcessCourseNotes(Course courseData, IEnumerable<string> courseNotesDownloadLinks)
+        private void ProcessCourseNotes(CourseCreator courseData, IEnumerable<string> courseNotesDownloadLinks)
         {
             foreach (var noteDownloadLink in courseNotesDownloadLinks)
             {
@@ -110,13 +109,13 @@ namespace Notify.Forms
             FileDownloader.Download(noteDownloadLink, $"NOTES/{courseName}/{noteName}.pdf", DownloadCompleted);
         }
 
-        private void AddNoteToDb(Course courseData, string noteName, string downloadLink)
+        private void AddNoteToDb(CourseCreator courseData, string noteName, string downloadLink)
         {
             using (var db = new NotifyLocalDBEntities())
             {
                 #region WRITE NOTE DATA TO DB
 
-                var newCourseNote = new Note
+                var newCourseNote = new Models.Note
                 {
                     courseId = courseData.Id,
                     noteCustomPath = noteName,
@@ -124,7 +123,7 @@ namespace Notify.Forms
                     portalNoteId = Convert.ToInt32(downloadLink.Split('=')[1])
                 };
 
-                newCourseNote.noteName = _k.GetHtmlOfTagContainingKeyword("a", newCourseNote.portalNoteId.ToString()).FirstOrDefault();
+                newCourseNote.noteName = _parser.GetHtmlOfTagContainingKeyword("a", newCourseNote.portalNoteId.ToString()).FirstOrDefault();
 
                 db.Notes.Add(newCourseNote);
 
