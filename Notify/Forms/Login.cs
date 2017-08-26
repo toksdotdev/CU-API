@@ -20,8 +20,6 @@ namespace Notify.Forms
 
             InitializeComponent();
 
-            _parser.NavigateToMoodle();
-
             Controls.Add(_parser.Browser);
 
             _parser.Browser.Show();

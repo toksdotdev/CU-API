@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using HtmlDocument = HtmlAgilityPack.HtmlDocument;
@@ -17,13 +18,27 @@ namespace StudentMoodle.Parser
         {
             Browser = new WebBrowser();
 
+            //Navigate to moodle on intantiation
+            NavigateToMoodle();
+
             Browser.Navigated += _webBrowser_Navigated;
 
             Browser.DocumentCompleted += Browser_DocumentCompleted;
             Browser.Navigating += Browser_Navigating;
+        }
+
+        public static void SetCookie(Cookie cookie)
+        {
+            InternetSetCookie("http://10.0.3.32", cookie.Name, cookie.Value);
 
             //InternetSetCookie("http://10.0.3.32", "MoodleSession", "29n3fh832cvrs0bqve3qhhsia5");
             //InternetSetCookie("http://10.0.3.32", "MOODLEID1", "%2507%2522%25CC%25E0_%25F3%25D5%25DF%25FDpX%25E4l%2519%2525%2521p%2508");
+        }
+
+        public static void SetCookie(CookieCollection cookieCollection)
+        {
+            foreach (var cookie in cookieCollection)
+                InternetSetCookie("http://10.0.3.32", (cookie as Cookie)?.Name, (cookie as Cookie)?.Value);
         }
 
         /// <summary>
