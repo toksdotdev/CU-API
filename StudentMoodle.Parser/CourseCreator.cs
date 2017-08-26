@@ -5,22 +5,12 @@ namespace StudentMoodle.Parser
 {
     public class CourseCreator
     {
-        #region VARIABLE DECLARATION
-
-        public int Id { get; set; }
-        public string Name { get; set; }
-        private int UserId { get; set; }
-
-        #endregion VARIABLE DECLARATION
-
         public CourseCreator(int userId)
         {
             UserId = userId;
 
             if (!Directory.Exists($"NOTES/{Name}"))
-            {
                 CreateDirectory();
-            }
         }
 
         private void CreateDirectory()
@@ -32,11 +22,19 @@ namespace StudentMoodle.Parser
         {
             return new Course
             {
-                courseName = Name,
-                portalCourseId = Id,
-                dateAdded = DateTime.Now,
-                userId = UserId
+                CourseName = Name,
+                PortalCourseId = Id,
+                DateAdded = DateTime.Now,
+                UserId = UserId
             };
         }
+
+        #region VARIABLE DECLARATION
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        private int UserId { get; }
+
+        #endregion VARIABLE DECLARATION
     }
 }

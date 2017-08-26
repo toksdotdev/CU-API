@@ -10,24 +10,8 @@ namespace StudentMoodle.Parser
 {
     public class MoodleParser : IParser
     {
-        #region VARIABLE DECLARATION
-
-        private const string CourseLinkTemplate = "/course/view.php?id=";
-
-        private const string ResourcesLinkTemplate = "/mod/resource/view.php?id=";
-        private const string UserProfileLinkTemplate = "/user/profile.php?id=";
-
-        public WebBrowser Browser { get; }
-
-        private string _serverName;
-
-        //private const string HOST = "10.0.0.32";
-        private bool _pageLoadingComplete = true;
-
-        #endregion VARIABLE DECLARATION
-
         /// <summary>
-        /// Create the API Object
+        ///     Create the API Object
         /// </summary>
         public MoodleParser()
         {
@@ -42,34 +26,8 @@ namespace StudentMoodle.Parser
             //InternetSetCookie("http://10.0.3.32", "MOODLEID1", "%2507%2522%25CC%25E0_%25F3%25D5%25DF%25FDpX%25E4l%2519%2525%2521p%2508");
         }
 
-        [DllImport("wininet.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern bool InternetSetCookie(string url, string name, string data);
-
-        private void Browser_Navigating(object sender, WebBrowserNavigatingEventArgs e)
-        {
-            while (!_pageLoadingComplete)
-            {
-                //do nothing but wait
-            }
-
-            _pageLoadingComplete = false;
-        }
-
-        private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            _pageLoadingComplete = true;
-        }
-
         /// <summary>
-        /// Navigate to the homepage of moodle
-        /// </summary>
-        public void NavigateToMoodle()
-        {
-            NavigatePage(new Uri("http://10.0.3.32"));
-        }
-
-        /// <summary>
-        /// Generates the course page link of a particular <code>course</code>
+        ///     Generates the course page link of a particular <code>course</code>
         /// </summary>
         /// <param name="courseName">Name of course to generate page id for</param>
         /// <returns>Uri of the <code>courseName</code> general page</returns>
@@ -80,7 +38,7 @@ namespace StudentMoodle.Parser
         }
 
         /// <summary>
-        /// Generates a valid
+        ///     Generates a valid
         /// </summary>
         /// <param name="courseId"></param>
         public List<string> GetCourseNotesDownloadLinksById(int courseId)
@@ -101,7 +59,7 @@ namespace StudentMoodle.Parser
         }
 
         /// <summary>
-        /// Retrieves all the course material download link for a particular course name
+        ///     Retrieves all the course material download link for a particular course name
         /// </summary>
         /// <param name="courseName">Course for which lecture contants are retrieved</param>
         /// <returns>Collection of course material download links for a specific course</returns>
@@ -119,7 +77,7 @@ namespace StudentMoodle.Parser
         }
 
         /// <summary>
-        /// Gets the list of all the courses data {id and name}
+        ///     Gets the list of all the courses data {id and name}
         /// </summary>
         /// <returns>List of all courses Id</returns>
         public IEnumerable<CourseCreator> GetCoursesData()
@@ -137,7 +95,7 @@ namespace StudentMoodle.Parser
                 //Get all the course link
                 var coursesLinks = GetHtmlAttributeDataCollectionFromString("a", "href", "&amp;course");
 
-                var link = coursesLinks.Aggregate("", (current, coursesLink) => current + (coursesLink + "\n"));
+                var link = coursesLinks.Aggregate("", (current, coursesLink) => current + coursesLink + "\n");
 
                 MessageBox.Show(link);
 
@@ -166,7 +124,76 @@ namespace StudentMoodle.Parser
         }
 
         /// <summary>
-        ///Get the html attribute data that contains the specified search string from web document
+        /// </summary>
+        /// <param name="tagName"></param>
+        /// <param name="keyword"></param>
+        /// <returns></returns>
+        public IEnumerable<string> GetHtmlOfTagContainingKeyword(string tagName, string keyword)
+        {
+            if (Browser.Document == null) return null;
+
+            var doc = new HtmlDocument();
+            var documentBody = Browser.Document.Body;
+
+            if (documentBody != null) doc.Load(new StringReader(documentBody.OuterHtml));
+
+            var hrefList = doc.DocumentNode.SelectNodes("//" + tagName)
+                .Where(p => p.GetAttributeValue("href", "not found").Contains(keyword))
+                .Select(cd => cd.InnerHtml)
+                .ToList();
+
+            return hrefList;
+        }
+
+        /// <summary>
+        ///     Gets profile link from 10.0.0.32 :to go to profile page
+        /// </summary>
+        /// <returns>User profile page url</returns>
+        public Uri GetProfileLink()
+        {
+            var link = GetHtmlAttributeDataCollectionFromString("a", "href", UserProfileLinkTemplate);
+
+            return new Uri(link[0]);
+        }
+
+        /// <summary>
+        ///     Navigate to new page, but makes sure browser doesnt navigate to page that is already open
+        /// </summary>
+        /// <param name="linkToavigate">ink to navigate to</param>
+        public void NavigatePage(Uri linkToavigate)
+        {
+            //if (Browser != null && !Browser.Url.Equals(null))
+            Browser.Navigate(linkToavigate);
+        }
+
+        [DllImport("wininet.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern bool InternetSetCookie(string url, string name, string data);
+
+        private void Browser_Navigating(object sender, WebBrowserNavigatingEventArgs e)
+        {
+            while (!_pageLoadingComplete)
+            {
+                //do nothing but wait
+            }
+
+            _pageLoadingComplete = false;
+        }
+
+        private void Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            _pageLoadingComplete = true;
+        }
+
+        /// <summary>
+        ///     Navigate to the homepage of moodle
+        /// </summary>
+        public void NavigateToMoodle()
+        {
+            NavigatePage(new Uri("http://10.0.3.32"));
+        }
+
+        /// <summary>
+        ///     Get the html attribute data that contains the specified search string from web document
         /// </summary>
         /// <param name="tagName">tag to extract data from</param>
         /// <param name="attribute">Attribute to get data </param>
@@ -178,11 +205,11 @@ namespace StudentMoodle.Parser
             var attributeDataCollection = GetHtmlAttributeFromTag(tagName, attribute);
 
             return attributeDataCollection.Where(data => data.Contains(searchString)
-                && !data.Contains(searchString + "=1")).ToList();
+                                                         && !data.Contains(searchString + "=1")).ToList();
         }
 
         /// <summary>
-        ///Get the attribute data collection from a given tag
+        ///     Get the attribute data collection from a given tag
         /// </summary>
         /// <param name="tagName">Tag to extract data from</param>
         /// <param name="attribute">Attribute to get data</param>
@@ -198,58 +225,14 @@ namespace StudentMoodle.Parser
             if (documentBody != null) doc.Load(new StringReader(documentBody.OuterHtml));
 
             var hrefList = doc.DocumentNode.SelectNodes("//" + tagName)
-                              .Select(p => p.GetAttributeValue(attribute, "not found"))
-                              .ToList();
+                .Select(p => p.GetAttributeValue(attribute, "not found"))
+                .ToList();
 
             return hrefList;
         }
 
         /// <summary>
-        ///
-        /// </summary>
-        /// <param name="tagName"></param>
-        /// <param name="keyword"></param>
-        /// <returns></returns>
-        public IEnumerable<string> GetHtmlOfTagContainingKeyword(string tagName, string keyword)
-        {
-            if (Browser.Document == null) return null;
-
-            var doc = new HtmlDocument();
-            var documentBody = Browser.Document.Body;
-
-            if (documentBody != null) doc.Load(new StringReader(documentBody.OuterHtml));
-
-            var hrefList = doc.DocumentNode.SelectNodes("//" + tagName)
-                              .Where(p => p.GetAttributeValue("href", "not found").Contains(keyword))
-                              .Select(cd => cd.InnerHtml)
-                              .ToList();
-
-            return hrefList;
-        }
-
-        /// <summary>
-        /// Gets profile link from 10.0.0.32 :to go to profile page
-        /// </summary>
-        /// <returns>User profile page url</returns>
-        public Uri GetProfileLink()
-        {
-            var link = GetHtmlAttributeDataCollectionFromString("a", "href", UserProfileLinkTemplate);
-
-            return new Uri(link[0]);
-        }
-
-        /// <summary>
-        /// Navigate to new page, but makes sure browser doesnt navigate to page that is already open
-        /// </summary>
-        /// <param name="linkToavigate">ink to navigate to</param>
-        public void NavigatePage(Uri linkToavigate)
-        {
-            //if (Browser != null && !Browser.Url.Equals(null))
-            Browser.Navigate(linkToavigate);
-        }
-
-        /// <summary>
-        /// Web browser has successfully navigated to new page
+        ///     Web browser has successfully navigated to new page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -261,7 +244,7 @@ namespace StudentMoodle.Parser
         }
 
         /// <summary>
-        /// Gets the course Id for a particular course
+        ///     Gets the course Id for a particular course
         /// </summary>
         /// <param name="courseName">ame of course to retrieve Id for</param>
         /// <returns>Id of <code>courseName</code></returns>
@@ -271,5 +254,21 @@ namespace StudentMoodle.Parser
                     where course.Name.Equals(courseName)
                     select course.Id).FirstOrDefault();
         }
+
+        #region VARIABLE DECLARATION
+
+        private const string CourseLinkTemplate = "/course/view.php?id=";
+
+        private const string ResourcesLinkTemplate = "/mod/resource/view.php?id=";
+        private const string UserProfileLinkTemplate = "/user/profile.php?id=";
+
+        public WebBrowser Browser { get; }
+
+        private string _serverName;
+
+        //private const string HOST = "10.0.0.32";
+        private bool _pageLoadingComplete = true;
+
+        #endregion VARIABLE DECLARATION
     }
 }

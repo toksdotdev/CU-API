@@ -6,7 +6,8 @@ namespace StudentMoodle.Parser
 {
     public class FileDownloader : Downloader
     {
-        public static void Download(string downloadUrl, string filename, DownloadDataCompletedEventHandler callbackDelegate)
+        public static void Download(string downloadUrl, string filename,
+            DownloadDataCompletedEventHandler callbackDelegate)
         {
             try
             {

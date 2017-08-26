@@ -5,11 +5,11 @@ namespace StudentMoodle.Parser
 {
     public sealed class Course
     {
-        public int courseId { get; set; }
-        public int portalCourseId { get; set; }
-        public int userId { get; set; }
-        public string courseName { get; set; }
-        public DateTime? dateAdded { get; set; }
+        public int CourseId { get; set; }
+        public int PortalCourseId { get; set; }
+        public int UserId { get; set; }
+        public string CourseName { get; set; }
+        public DateTime? DateAdded { get; set; }
 
         public ICollection<Note> Notes { get; set; } = new HashSet<Note>();
     }
