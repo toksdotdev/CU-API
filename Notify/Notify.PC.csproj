@@ -255,7 +255,12 @@
     </Content>
     <Content Include="LinqToDB.Templates\CopyMe.MySql.tt.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\StudentMoodle.Parser\StudentMoodle.Parser.csproj">
+      <Project>{67a3e816-2b8a-44c2-a259-44521375b366}</Project>
+      <Name>StudentMoodle.Parser</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
